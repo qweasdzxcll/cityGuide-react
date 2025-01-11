@@ -1,0 +1,120 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+a {
+    text-decoration: none;
+    color: white;
+}
+
+li {
+    list-style: none;
+}
+
+.main {
+    &__container {
+        width: 210vh;
+        height: 100vh;
+        overflow: hidden;
+        @media (max-width: 426px) {
+            width: 425px;
+        }
+    }
+    &__line {
+        transition: all 1.5s;
+        width: 440vh;
+        height: 100vh;
+        display: flex;
+        position: relative;
+        text-align: center;
+        align-items: center;
+        @media (max-width: 426px) {
+            width: 850px;
+        }
+    }
+    &__img {
+        position: relative;
+        z-index: 0;
+        width: 210vh;
+        height: 100%;
+        @media (max-width: 426px) {
+            width: 425px;
+            height: 300px;
+        }
+        img {
+            width: 100%;
+            height: 100%;
+        }
+    }
+    &__title {
+        z-index: 1;
+        font-family: Protest Strike;
+        position: absolute;
+        left: 25%;
+        bottom: 55%;
+        color: white;
+        width: 750px;
+        font-size: 120px;
+        text-shadow: 10px 4px 4px rgba(0, 0, 0, 0.219);
+        font-weight: 900;
+        @media (max-width: 426px) {
+            margin-left: 120px;
+            font-size: 30px;
+        }
+    }
+    &__seemore {
+        font-family: Protest Strike;
+        z-index: 1;
+        position: absolute;
+        font-size: 40px;
+        bottom: 50%;
+        left: 40%;
+        background-color: rgba(255, 255, 255, 0.295);
+        border-radius: 50px;
+        @media (max-width: 426px) {
+            font-size: 24px;
+            width: 201px;
+            position: relative;
+            left: 110px;
+        }
+        a {
+            padding: 15px 25px;
+            width: 201px;
+            @media (max-width: 426px) {
+                width: 250px;
+                padding: 0;
+            }
+        }
+    }
+}
+.btns {
+    &__btn {
+        cursor: pointer;
+        bottom: 50%;
+        border-radius: 30px;
+        img {
+            width: 60px;
+            height: 60px;
+            @media (max-width: 426px) {
+                width: 40px;
+                height: 40px;
+            }
+        }
+    }
+    &__btn-prev {
+        position: absolute;
+        margin-left: 10px;
+        @media (max-width: 426px) {
+            // top: 120px;
+        }
+    }
+    &__btn-next {
+        left: 95%;
+        position: absolute;
+        @media (max-width: 426px) {
+            left: 370px;
+            // top: 120px;
+        }
+    }
+}
