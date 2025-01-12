@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: Protest Strike;
 }
 a {
     text-decoration: none;
@@ -21,18 +22,18 @@ li {
             width: 425px;
         }
     }
-    &__line {
-        transition: all 1.5s;
-        width: 440vh;
-        height: 100vh;
-        display: flex;
-        position: relative;
-        text-align: center;
-        align-items: center;
-        @media (max-width: 426px) {
-            width: 850px;
-        }
-    }
+    // &__line {
+    //     transition: all 1.5s;
+    //     width: 440vh;
+    //     height: 100vh;
+    //     display: flex;
+    //     position: relative;
+    //     text-align: center;
+    //     align-items: center;
+    //     @media (max-width: 426px) {
+    //         width: 850px;
+    //     }
+    // }
     &__img {
         position: relative;
         z-index: 0;

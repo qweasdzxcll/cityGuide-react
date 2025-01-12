@@ -1,0 +1,102 @@
+.header {
+    position: absolute;
+    &__container {
+        margin: 20px 30px;
+        display: flex;
+        @media (max-width: 426px) {
+            width: 300px;
+        }
+    }
+    &__item {
+        :hover {
+            text-decoration: underline;
+        }
+        @media (max-width: 426px) {
+            display: none;
+        }
+    }
+    &__burger-contact {
+        @media (max-width: 426px) {
+            padding-top: 20px;
+        }
+    }
+    &__item-2 {
+        width: 250px;
+    }
+    &__attrs {
+        cursor: pointer;
+        display: flex;
+        gap: 35px;
+    }
+    &__item-3 {
+        color: rgba(255, 255, 255, 0.288);
+        text-shadow: none;
+    }
+    &__item {
+        font-family: Protest Strike;
+    }
+    &__elems {
+        color: white;
+        display: flex;
+        align-items: center;
+        font-size: 30px;
+        gap: 35px;
+        text-shadow: 10px 4px 4px rgba(0, 0, 0, 0.219);
+        margin-left: 30px;
+    }
+    &__burger {
+        display: none;
+        background-color: rgba(128, 128, 128, 0.719);
+        border-radius: 30px;
+        color: white;
+        font-family: Protest Strike;
+        position: absolute;
+        z-index: 12388750;
+        top: 30px;
+        right: 150px;
+    }
+    &__burger-cont {
+        text-align: center;
+        align-items: center;
+        font-size: 20px;
+        width: 200px;
+        min-height: 250px;
+    }
+    &__burger-item {
+        padding-top: 10px;
+    }
+    &__burger-form {
+        input {
+            padding: 5px 10px;
+            border: none;
+            border-radius: 30px;
+            outline: 0;
+            width: 150px;
+        }
+    }
+    &__burger-close {
+        margin-top: 10px;
+        margin-right: 10px;
+        float: right;
+        img {
+            width: 25px;
+            height: 25px;
+        }
+    }
+    &__burgerbtn {
+        display: none;
+        @media (max-width: 426px) {
+            display: block;
+        }
+        img {
+            position: relative;
+            bottom: 10px;
+            right: 80px;
+            width: 30px;
+            height: 30px;
+        }
+    }
+    &__burger-contact {
+        margin-bottom: 10px;
+    }
+}

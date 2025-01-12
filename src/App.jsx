@@ -1,9 +1,8 @@
-import Server from "./components/Server";
-import Detail from "./components/Detail";
-import Slider from "./pages/Slider";
+import { Slider, Home  } from "./pages";
 import React, { useState, useEffect } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Venice, Warsaw } from './pages'
 
 export const queryClient = new QueryClient();
 function App() {
@@ -21,18 +20,15 @@ function App() {
       });
   }, []);
   return (
-    <>
-      <QueryClientProvider client={queryClient}>
-        <Slider />
-        {/* {content.map(item => <Server item={item} />)} */}
-      </QueryClientProvider>
-    </>
-    // <Router>
-    //   <Routes>
-    //     <Route path='/' element={content.map(item => <Server item={item} />)} />
-    //     {/* <Route path={`http://localhost:3000/:id`} element={<Detail />}/> */}
-    //   </Routes>
-    // </Router>
+    <BrowserRouter>
+      {/* <QueryClientProvider client={queryClient}>
+        {content.map(item => <Server item={item} />)}
+      </QueryClientProvider> */}
+      <Routes>
+        <Route path='/' element={<Slider />} />
+        <Route path='/home' element={<Home />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

@@ -2,7 +2,6 @@ const reportWebVitals = (onPerfEntry) => {
   if (onPerfEntry && onPerfEntry instanceof Function) {
     import('web-vitals')
       .then(({ getCLS, getFID, getFCP, getLCP, getTTFB }) => {
-        console.log('getCLS:', getCLS); // Проверка доступности функции
         if (getCLS) {
           getCLS(onPerfEntry);
         } else {

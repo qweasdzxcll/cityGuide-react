@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: Protest Strike;
 }
 
 a {
@@ -21,20 +22,6 @@ li {
 @media (max-width: 426px) {
   .main__container {
     width: 425px;
-  }
-}
-.main__line {
-  transition: all 1.5s;
-  width: 440vh;
-  height: 100vh;
-  display: flex;
-  position: relative;
-  text-align: center;
-  align-items: center;
-}
-@media (max-width: 426px) {
-  .main__line {
-    width: 850px;
   }
 }
 .main__img {
