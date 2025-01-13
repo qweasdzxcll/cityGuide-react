@@ -1,10 +1,11 @@
-import { Slider, Home  } from "./pages";
+import { Slider, Home, Attractions } from "./pages";
 import React, { useState, useEffect } from "react";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Venice, Warsaw } from './pages'
 
-export const queryClient = new QueryClient();
+import { QueryClientProvider } from '@tanstack/react-query';
+import { queryClient } from '../src/api/query-client';
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
+
 function App() {
   const [content, setContent] = useState([]);
   useEffect(() => {
@@ -20,15 +21,16 @@ function App() {
       });
   }, []);
   return (
-    <BrowserRouter>
-      {/* <QueryClientProvider client={queryClient}>
-        {content.map(item => <Server item={item} />)}
-      </QueryClientProvider> */}
-      <Routes>
-        <Route path='/' element={<Slider />} />
-        <Route path='/home' element={<Home />} />
-      </Routes>
-    </BrowserRouter>
+    <QueryClientProvider client={queryClient}>
+      <ReactQueryDevtools initialIsOpen={false} />
+      <BrowserRouter>
+          <Routes>
+            <Route path='/' element={<Slider />} />
+            <Route path='/home' element={<Home />} />
+            <Route path='/attractions' element={<Attractions />} />
+          </Routes>
+      </BrowserRouter>
+    </QueryClientProvider>
   );
 }
 
