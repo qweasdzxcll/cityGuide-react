@@ -14,7 +14,7 @@ export function getOneAttraction(id) {
     .then(res => res.json())
 }
 
-export function getCityAttractions() {
-    return fetch(`${BASE_URL}/?city=Venice`)
+export function getCityAttractions(city) {
+    return fetch(`${BASE_URL}/?city=${city}`)
     .then(res => res.json())
 }

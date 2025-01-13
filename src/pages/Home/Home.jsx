@@ -1,7 +1,10 @@
 import React from 'react'
-import Header from '../components/Header'
+import Header from '../../components/Header/Header'
+import Footer from '../../components/Footer/Footer'
 import { useSelector } from 'react-redux'
-import '../css/home.scss'
+import styles from './home.module.scss'
+
+console.log(styles.main__container)
 
 export default function Home() {
     let data
@@ -41,91 +44,57 @@ export default function Home() {
 
     return (
         <div style={styles}>
-            <Header attr={city}/>
-            <div className="mainnn__container">
-                <div className="mainn__block">
-                    <div className="mainn__title">
-                        <h1>{data.title}</h1>
-                    </div>
-                    <div className="mainn__text">
-                        <p>{data.text}</p>
-                    </div>
-                    <div className="mainn__btn">
-                        <a href="#info">See More</a>
-                    </div>
-                </div>
-                <div className="mainn__slider">
-                    <div className="mainn__line">
-                        <div className="mainn__img">
-                            <img src={data.images[0]} id="img" alt="" />
+            <Header attr={city} />
+            <div className={styles.main}>
+                <div className={styles.main__container}>
+                    <div className={styles.main__block}>
+                        <div className={styles.main__title}>
+                            <h1>{data.title}</h1>
                         </div>
-                        <div className="mainn__img">
-                            <img src={data.images[1]} id="img" alt="" />
+                        <div className={styles.main__text}>
+                            <p>{data.text}</p>
                         </div>
-                        <div className="mainn__img">
-                            <img src={data.images[2]} id="img" alt="" />
+                        <div className={styles.main__btn}>
+                            <a href="#info">See More</a>
                         </div>
-                        <div className="mainn__img">
-                            <img src={data.images[3]} id="img" alt="" />
+                    </div>
+                    <div className={styles.main__slider}>
+                        <div className={styles.main__line}>
+                            <div className={styles.main__img}>
+                                <img src={data.images[0]} id="img" alt="" />
+                            </div>
+                            <div className={styles.main__img}>
+                                <img src={data.images[1]} id="img" alt="" />
+                            </div>
+                            <div className={styles.main__img}>
+                                <img src={data.images[2]} id="img" alt="" />
+                            </div>
+                            <div className={styles.main__img}>
+                                <img src={data.images[3]} id="img" alt="" />
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <section class="info">
-                <div class="info__container" id="info">
-                    <div class="info__row">
-                        <div class="info__map">
+            <section className={styles.info}>
+                <div className={styles.info__container} id="info">
+                    <div className={styles.info__row}>
+                        <div className={styles.info__map}>
                             <iframe
                                 src={data.map}
                                 width="500" height="500" style={{ border: "0" }} allowfullscreen="" loading="lazy"
                                 referrerpolicy="no-referrer-when-downgrade"></iframe>
                         </div>
-                        <div class="info__text">
+                        <div className={styles.info__text}>
                             <p>{data.info}</p>
-                            <div class="info__btn">
+                            <div className={styles.info__btn}>
                                 <a>Достопримечательности</a>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
-            <footer class="footer">
-                <div class="footer__container">
-                    <div class="footer__block">
-                        <div class="footer__item">
-                            <a href="contacts.html">Оставить отзыв</a>
-                        </div>
-                        <div class="footer__item">
-                            <a href="all_attr.html">Посмотреть все достопримечательности</a>
-                        </div>
-                    </div>
-                    <div class="footer__block">
-                        <div class="footer__item">
-                            <p>E-mail: email@mail.ru</p>
-                        </div>
-                        <div class="footer__item">
-                            <p>Telegram: @telegram</p>
-                        </div>
-                        <div class="footer__item">
-                            <p>Facebook: @facebook</p>
-                        </div>
-                        <div class="footer__item">
-                            <p>Instagram: @instagram</p>
-                        </div>
-                        <div class="footer__item">
-                            <p>Twitter: @twitter</p>
-                        </div>
-                    </div>
-                    <div class="footer__block">
-                        <div class="footer__item">
-                            <p>Политика конфиденциальности</p>
-                        </div>
-                        <div class="footer__item">
-                            <p>FAQ</p>
-                        </div>
-                    </div>
-                </div>
-            </footer>
+            <Footer />
         </div>
     )
 }

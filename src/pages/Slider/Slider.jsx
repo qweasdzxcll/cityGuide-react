@@ -1,8 +1,8 @@
 import React, { useState, useRef, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import '../css/slider.scss'
+import styles from './slider.module.scss'
 import { useDispatch } from 'react-redux'
-import { changePage } from '../redux/actions/page'
+import { changePage } from '../../redux/actions/page'
 
 export default function Slider() {
     const [position, setPosition] = useState(0)
@@ -62,24 +62,24 @@ export default function Slider() {
 
     return (
         <div>
-            <div className="main">
-                <div className="main__container">
-                    <div className="main__line" ref={line} style={styles}>
-                        <div ref={image} className="main__img">
-                            <img className="main__w" src="/venice.jpg" />
-                            <div className="main__title main__title-venezia">
+            <div className={styles.main}>
+                <div className={styles.main__container}>
+                    <div className={styles.main__line} ref={line} style={styles}>
+                        <div ref={image} className={styles.main__img}>
+                            <img className={styles.main__w} src="/venice.jpg" />
+                            <div className={styles.main__title}>
                                 <h1>Venice</h1>
                             </div>
-                            <div className="main__seemore main__seemore-venezia">
+                            <div className={styles.main__seemore}>
                                 <Link to='/home?city=venice' title='Venice'><a>Узнать больше</a></Link>
                             </div>
                         </div>
-                        <div className="main__img">
-                            <img className="main__w" src="/warsaw.jpg" />
-                            <div className="main__title main__title-warsaw">
+                        <div className={styles.main__img}>
+                            <img className={styles.main__w} src="/warsaw.jpg" />
+                            <div className={styles.main__title}>
                                 <h1>Warsaw</h1>
                             </div>
-                            <div className="main__seemore main__seemore-warsaw">
+                            <div className={styles.main__seemore}>
                                 <Link to='/home?city=warsaw'><a>Узнать больше</a></Link>
                             </div>
                         </div>

@@ -5,38 +5,44 @@
 }
 
 a {
-    color: black;
     text-decoration: none;
 }
 
 li {
     list-style: none;
 }
-.header-2 {
+
+.header {
     &__container {
         margin: 10px 20px;
         display: flex;
     }
+
     &__item {
         font-family: Protest Strike;
-        display: flex;
+        color: black;
+
         :hover {
             text-decoration: underline;
         }
+
         @media (max-width: 426px) {
             font-size: 20px;
         }
     }
+
     &__contact {
         @media (max-width: 426px) {
             display: none;
         }
     }
+
     &__elems {
         display: flex;
         align-items: center;
         font-size: 40px;
         gap: 50px;
+
         @media (max-width: 426px) {
             gap: 40px;
         }
@@ -46,33 +52,37 @@ li {
 .form {
     &__container {
         max-width: 30vw;
-        height: 30vw;
         margin: 5vw auto;
         background-color: #7e8896;
         border: 5px dashed #c3d2e8;
         border-radius: 10px;
-        animation-name: opacity;
-        animation-duration: 2s;
+
         @media (max-width: 426px) {
             max-width: 60vw;
             height: 70vh;
         }
     }
+
     &__form {
         color: white;
         max-width: 20vh;
-        margin: 5vw auto;
+        margin: 5vh 7vw;
+
         @media (max-width: 426px) {
             margin: 5vw 10px;
         }
+
         label {
             font-weight: 900;
+            color: black;
         }
-        input, textarea {
+
+        input,
+        textarea {
             font-size: 16px;
             font-weight: 700;
-            width: 150px;
-            height: 30px;
+            width: 15vw;
+            height: 5vh;
             padding-left: 5px;
             border: 3px solid #a5afd5;
             border-radius: 5px;
@@ -80,6 +90,7 @@ li {
             outline: none;
             box-shadow: 7px 5px 0 black;
         }
+
         textarea {
             padding-top: 5px;
             height: 70px;

@@ -13,21 +13,6 @@
     box-sizing: border-box;
 }
 
-.loader {
-    animation-name: rotate;
-    animation-duration: 2s;
-    animation-iteration-count: infinite;
-    text-align: center;
-    position: relative;
-    left: 45vw;
-    margin-top: 40vh;
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    border: 30px solid grey;
-    border-top: 30px solid rgb(58, 58, 62);
-}
-
 a {
     text-decoration: none;
     color: black;
@@ -37,12 +22,10 @@ li {
     list-style: none;
 }
 
-.headerr {
+.header {
     &__container {
-        margin-top: 5vh;
-        margin-bottom: 5vh;
-        margin-left: 40vh;
-        max-width: 127vh;
+        max-width: 60vw;
+        margin: 3vh auto;
         display: flex;
         background-color: #e6e6e6;
         font-family: Protest Strike;
@@ -61,7 +44,7 @@ li {
     }
 }
 
-.main-2 {
+.main {
     position: relative;
     display: flex;
     flex-wrap: wrap;
@@ -76,9 +59,8 @@ li {
     &__container {
         background-color: #e6e6e6;
         border-radius: 30px;
-        margin-left: 30vh;
-        animation-name: left;
-        animation-duration: 5s;
+        max-width: 70vw;
+        margin: 3vh auto;
         @media(max-width: 426px) {
             margin-left: 0;
         }

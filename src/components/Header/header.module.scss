@@ -24,9 +24,6 @@ a {
             padding-top: 20px;
         }
     }
-    &__item-2 {
-        width: 250px;
-    }
     &__attrs {
         cursor: pointer;
         display: flex;
@@ -58,33 +55,40 @@ a {
         z-index: 12388750;
         top: 30px;
         right: 150px;
-    }
-    &__burger-cont {
-        text-align: center;
-        align-items: center;
-        font-size: 20px;
-        width: 200px;
-        min-height: 250px;
-    }
-    &__burger-item {
-        padding-top: 10px;
-    }
-    &__burger-form {
-        input {
-            padding: 5px 10px;
-            border: none;
-            border-radius: 30px;
-            outline: 0;
-            width: 150px;
+        &-contact {
+            margin-bottom: 10px;
         }
-    }
-    &__burger-close {
-        margin-top: 10px;
-        margin-right: 10px;
-        float: right;
-        img {
-            width: 25px;
-            height: 25px;
+
+        &-cont {
+            text-align: center;
+            align-items: center;
+            font-size: 20px;
+            width: 200px;
+            min-height: 250px;
+        }
+
+        &-item {
+            padding-top: 10px;
+        }
+
+        &-form {
+            input {
+                padding: 5px 10px;
+                border: none;
+                border-radius: 30px;
+                outline: 0;
+                width: 150px;
+            }
+        }
+        
+        &-close {
+            margin-top: 10px;
+            margin-right: 10px;
+            float: right;
+            img {
+                width: 25px;
+                height: 25px;
+            }
         }
     }
     &__burgerbtn {
@@ -99,8 +103,5 @@ a {
             width: 30px;
             height: 30px;
         }
-    }
-    &__burger-contact {
-        margin-bottom: 10px;
     }
 }
