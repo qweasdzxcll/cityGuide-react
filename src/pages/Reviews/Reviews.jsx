@@ -1,27 +1,42 @@
+/* eslint-disable */
 import React from 'react'
-import './reviews.module.scss'
+import styles from './reviews.module.css'
+import { Link } from 'react-router-dom'
+import { useQuery } from '@tanstack/react-query'
+import { getAllAttractions } from '../../api/attractions'
 
 export default function Reviews() {
+
+  const { data } = useQuery({
+    queryKey: ['cards', 'list'],
+    queryFn: () => getAllAttractions(),
+    staleTime: 5*60*1000
+  })
+
   return (
     <div>
-      <header className="header">
-        <div className="header__container">
-          <div className="header__elems">
-            <div className="header__item">
-              <a href="venice.html">Venice</a>
+      <header className={styles.header}>
+        <div className={styles.header__container}>
+          <div className={styles.header__elems}>
+            <div className={styles.header__item}>
+              <Link to="/home/venice"><a>Venice</a></Link>
             </div>
-            <div className="header__item">
-              <a href="warsaw.html">Warsaw</a>
+            <div className={styles.header__item}>
+            <Link to="/home/warsaw"><a>Warsaw</a></Link>
             </div>
           </div>
         </div>
       </header>
-      <main className="form">
-        <div className="form__container">
-          <div className="form__form">
+      <main className={styles.form}>
+        <div className={styles.form__container}>
+          <div className={styles.form__form}>
             <form method="post" id="form" />
-            <label for="title">Name of attraction: </label>
-            <input type="text" name="title" id="title" />
+            <label for="title">Title of attraction: </label>
+            <select name="" id="" className={styles.form__select}>
+              {
+                data?.map(item => <option value="">{item.title}</option>)
+              }
+            </select>
             <label for="firstname">Firstname: </label>
             <input type="text" name="firstname" id="firstname" required />
             <label for="Lastname">Lastname: </label>
@@ -30,7 +45,7 @@ export default function Reviews() {
             <input type="email" name="email" id="email" />
             <label for="comment">Comment: </label>
             <textarea name="comment" id="comment" required />
-            <input type="submit" value="Send.." id="submit" />
+            <input type="submit" value="Send.." id="submit"/>
           </div>
         </div>
       </main>

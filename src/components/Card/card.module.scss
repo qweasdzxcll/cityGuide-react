@@ -1,0 +1,99 @@
+.main {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    &__card {
+        margin: 5vh 15vh;
+        cursor: pointer;
+        @media(max-width: 426px) {
+            margin-left: 5px;
+            margin-right: 5px;
+        }
+    }
+    &__container {
+        background-color: #e6e6e6;
+        border-radius: 30px;
+        max-width: 70vw;
+        margin: 3vh auto;
+        @media(max-width: 426px) {
+            margin-left: 0;
+        }
+    }
+    &__title {
+        font-family: Protest Strike;
+        text-align: center;
+        margin-bottom: 1vh;
+        font-size: 20px;
+    }
+    &__rows {
+        display: flex;
+        gap: 10px;
+        @media(max-width: 426px) {
+            gap: 3px;
+        }
+    }
+    &__row {
+        display: flex;
+        gap: 25px;
+        @media(max-width: 426px) {
+            gap: 9px;
+        }
+    }
+    &__text {
+        max-width: 40vw;
+        height: 100%;
+        width: 100%;
+        font-size: 1.2vw;
+        text-align: center;
+        @media(max-width: 426px) {
+            width: 150px;
+            font-size: 11px;
+        }
+    }
+    &__img {
+        outline: 7px solid grey;
+        outline-offset: -6px;
+    }
+    &__gor {
+        background-color: rgba(0, 0, 0, 0.351);
+        max-width: 30vw;
+        max-height: 7vw;
+        @media(max-width: 426px) {
+            width: 80px;
+            height: 60px;
+        }
+        img {
+            width: 100%;
+            height: 100%;
+        }
+    }
+    &__vert {
+        max-width: 20vw;
+        max-height: 7vw;
+        @media(max-width: 426px) {
+            width: 40px;
+            height: 60px;
+        }
+        img {
+            width: 100%;
+            height: 100%;
+        }
+    }
+    &__modal {
+        position: fixed;
+        z-index: 99;
+        width: 30vw;
+        margin: 100px 33vw;
+        display: flex;
+        align-items: center;
+        @media (max-width: 426px) {
+            margin: 100px 0 100px 0;
+            left: 10px;
+            max-width: 400px;
+            width: 100%;
+        }
+        &-arr {
+            cursor: pointer;
+        }
+    }
+}

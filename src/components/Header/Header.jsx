@@ -1,6 +1,8 @@
+/* eslint-disable */
 import React from 'react'
-import styles from './header.module.scss'
-import { useNavigate, Link } from 'react-router-dom'
+import styles from './header.module.css'
+import { Link } from 'react-router-dom'
+
 
 export default function Header({attr}) {
 
@@ -16,16 +18,16 @@ export default function Header({attr}) {
                 <div className={styles.header__container}>
                     <div className={styles.header__elems} id="elems">
                         <div className={styles.header__item}>
-                            <a href="http://localhost:3000/home?city=venice">Venice</a>
+                            <Link to="/home/venice"><a>Venice</a></Link>
                         </div>
                         <div className={styles.header__item}>
-                            <a href="http://localhost:3000/home?city=warsaw">Warsaw</a>
+                            <Link to="/home/warsaw"><a>Warsaw</a></Link>
                         </div>
                         <div className={styles.header__item}>
-                            <a onClick={() => window.location.href=`http://localhost:3000/attractions?city=${attr}`}>Attractions</a>
+                            <Link to={`/attractions/${attr}`}><a>Attractions</a></Link>
                         </div>
                         <div className={styles.header__item}>
-                            <a>All Attractions</a>
+                            <Link to='/all-attractions'><a>All Attractions</a></Link>
                         </div>
                         <div className={styles.header__item}>
                             <Link to="/reviews"><a>Reviews</a></Link>

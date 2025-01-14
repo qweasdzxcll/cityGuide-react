@@ -1,6 +1,7 @@
+/* eslint-disable */
 import React, { useState, useRef, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import styles from './slider.module.scss'
+import styles from './slider.module.css'
 import { useDispatch } from 'react-redux'
 import { changePage } from '../../redux/actions/page'
 
@@ -33,7 +34,7 @@ export default function Slider() {
     }
 
     const image = useRef()
-    const line = useRef(null)
+    const line = useRef()
 
     useEffect(() => {
         const imageStyle = window.getComputedStyle(image.current)
@@ -47,7 +48,7 @@ export default function Slider() {
         }
     }
 
-    const styles = {
+    const lineStyles = {
         transition: 'all 1.5s',
         width: '440vh',
         height: '100vh',
@@ -58,20 +59,22 @@ export default function Slider() {
         right: `${position}px`
     }
 
+    console.log(styles);
+
     setTimeout(Right, 3000)
 
     return (
         <div>
             <div className={styles.main}>
                 <div className={styles.main__container}>
-                    <div className={styles.main__line} ref={line} style={styles}>
+                    <div className={styles.main__line} ref={line} style={lineStyles}>
                         <div ref={image} className={styles.main__img}>
                             <img className={styles.main__w} src="/venice.jpg" />
                             <div className={styles.main__title}>
                                 <h1>Venice</h1>
                             </div>
                             <div className={styles.main__seemore}>
-                                <Link to='/home?city=venice' title='Venice'><a>Узнать больше</a></Link>
+                                <Link to='/home/venice' title='Venice'><a>Узнать больше</a></Link>
                             </div>
                         </div>
                         <div className={styles.main__img}>
@@ -80,7 +83,7 @@ export default function Slider() {
                                 <h1>Warsaw</h1>
                             </div>
                             <div className={styles.main__seemore}>
-                                <Link to='/home?city=warsaw'><a>Узнать больше</a></Link>
+                                <Link to='/home/warsaw'><a>Узнать больше</a></Link>
                             </div>
                         </div>
                     </div>
@@ -89,3 +92,5 @@ export default function Slider() {
         </div >
     )
 }
+
+

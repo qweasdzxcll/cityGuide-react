@@ -1,17 +1,16 @@
+/* eslint-disable */
 import React from 'react'
-import Header from '../../components/Header/Header'
-import Footer from '../../components/Footer/Footer'
+import { Header, Footer } from '../../components/'
 import { useSelector } from 'react-redux'
-import styles from './home.module.scss'
-
-console.log(styles.main__container)
+import styles from './home.module.css'
+import { useParams, Link } from 'react-router-dom'
 
 export default function Home() {
     let data
     // const pageState = useSelector((state) => state)
 
-    const urlParams = new URLSearchParams(window.location.search)
-    const city = urlParams.get('city')
+    const {city} = useParams()
+
     if (city == 'venice') {
         data = {
             title: "Venice",
@@ -35,7 +34,7 @@ export default function Home() {
     }
 
 
-    const styles = {
+    const bgStyles = {
         backgroundImage: `url(${data.bg})`,
         backgroundSize: '100%',
         backgroundRepeat: 'no-repeat',
@@ -43,7 +42,7 @@ export default function Home() {
     }
 
     return (
-        <div style={styles}>
+        <div style={bgStyles}>
             <Header attr={city} />
             <div className={styles.main}>
                 <div className={styles.main__container}>
@@ -88,7 +87,7 @@ export default function Home() {
                         <div className={styles.info__text}>
                             <p>{data.info}</p>
                             <div className={styles.info__btn}>
-                                <a>Достопримечательности</a>
+                                <Link to={`/attractions/${city}`}><a>Достопримечательности</a></Link>
                             </div>
                         </div>
                     </div>

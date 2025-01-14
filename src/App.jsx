@@ -1,36 +1,23 @@
-import { Slider, Home, Attractions, Reviews } from "./pages";
-import React, { useState, useEffect } from "react";
-import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom";
+/* eslint-disable */
+import { Slider, Home, Attractions, Reviews, AllAttractions } from "./pages";
+import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import { QueryClientProvider } from '@tanstack/react-query';
 import { queryClient } from '../src/api/query-client';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 
 function App() {
-
-  const [content, setContent] = useState([]);
-  useEffect(() => {
-    fetch("https://672c8d021600dda5a9f8e610.mockapi.io/qweasdzxc")
-      .then((response) => {
-        if (!response.ok) {
-          console.error("Ошибка запроса");
-        }
-        return response.json();
-      })
-      .then((response) => {
-        setContent(response);
-      });
-  }, []);
   return (
     <QueryClientProvider client={queryClient}>
       <ReactQueryDevtools initialIsOpen={false} />
       <BrowserRouter>
         <Routes>
           <Route path='/' element={<Slider />} />
-          <Route path='/home' element={<Home />} />
-          {/* <Route path='/home/:city' element={<Home />} /> */}
-          <Route path='/attractions' element={<Attractions />} />
+          <Route path='/home/:city' element={<Home />} />
+          <Route path='/attractions/:city' element={<Attractions />} />
           <Route path='/reviews' element={<Reviews />} />
+          <Route path='/all-attractions' element={<AllAttractions />} />
         </Routes>
       </BrowserRouter>
     </QueryClientProvider>

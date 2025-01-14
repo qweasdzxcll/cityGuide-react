@@ -1,0 +1,58 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+li {
+  list-style: none;
+}
+
+.header__container {
+  max-width: 60vw;
+  margin: 3vh auto;
+  display: flex;
+  background-color: #e6e6e6;
+  font-family: Protest Strike;
+  gap: 30px;
+  padding: 3vh;
+  border-radius: 30px;
+}
+@media (max-width: 426px) {
+  .header__container {
+    margin-left: 0;
+  }
+}
+.header__elem {
+  font-size: 24px;
+  color: black;
+}
+.header__elem :hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 426px) {
+  #prev {
+    position: absolute;
+    left: 10px;
+  }
+}
+
+@media (max-width: 426px) {
+  #next {
+    position: absolute;
+    right: 10px;
+  }
+}
+
+.close {
+  position: absolute;
+  left: 60px;
+  top: 10px;
+  cursor: pointer;
+}

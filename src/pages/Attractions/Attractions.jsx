@@ -1,9 +1,11 @@
+/* eslint-disable */
 import React from 'react'
+import { Loader, Card } from '../../components'
 import { useQuery } from '@tanstack/react-query'
 import { getCityAttractions } from '../../api/attractions'
 import { useNavigate, useParams } from 'react-router-dom'
-import Card from '../../components/Card/Card'
-import styles from './attraction.module.scss'
+import styles from './attraction.module.css'
+import cardStyles from '../../components/card/card.module.css'
 
 export default function Attractions() {
 
@@ -13,26 +15,30 @@ export default function Attractions() {
     navigate(-1)
   }
 
-  const { city } = useParams()
+  const {city} = useParams()
 
-  const { data, isLoading, isError } = useQuery({
+  console.log(city)
+
+  const { data, isLoading } = useQuery({
     queryKey: ['cards', city],
-    queryFn: getCityAttractions(city ?? 'warsaw')
+    queryFn: () => getCityAttractions(city)
   })
 
-  if (isLoading) return
+  console.log()
+
+  if (isLoading) return <Loader />
 
   return (
     <div>
-      <header class="header">
-        <div class="header__container">
-          <div class="header__elem">
+      <header className="header">
+        <div className={styles.header__container}>
+          <div className={styles.header__elem}>
             <a onClick={() => goBack()}>Back</a>
           </div>
         </div>
       </header>
-      <div className="main">
-        <div className="main__container">
+      <div className={cardStyles.main}>
+        <div className={cardStyles.main__container}>
           {
             data?.map(card => <Card key={card.id} items={card} />)
           }

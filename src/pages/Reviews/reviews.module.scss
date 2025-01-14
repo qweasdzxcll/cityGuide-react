@@ -65,7 +65,7 @@ li {
 
     &__form {
         color: white;
-        max-width: 20vh;
+        max-width: 20vw;
         margin: 5vh 7vw;
 
         @media (max-width: 426px) {
@@ -73,14 +73,14 @@ li {
         }
 
         label {
-            font-weight: 900;
             color: black;
         }
 
         input,
-        textarea {
-            font-size: 16px;
-            font-weight: 700;
+        textarea,
+        option,
+        select  {
+            font-size: 20px;
             width: 15vw;
             height: 5vh;
             padding-left: 5px;
@@ -88,9 +88,7 @@ li {
             border-radius: 5px;
             margin-bottom: 5px;
             outline: none;
-            box-shadow: 7px 5px 0 black;
-        }
-
+            }
         textarea {
             padding-top: 5px;
             height: 70px;

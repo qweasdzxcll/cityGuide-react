@@ -1,4 +1,5 @@
 a {
+    color: white;
     cursor: pointer;
 }
 
@@ -12,6 +13,7 @@ a {
         }
     }
     &__item {
+        color: white;
         :hover {
             text-decoration: underline;
         }
@@ -80,7 +82,6 @@ a {
                 width: 150px;
             }
         }
-        
         &-close {
             margin-top: 10px;
             margin-right: 10px;

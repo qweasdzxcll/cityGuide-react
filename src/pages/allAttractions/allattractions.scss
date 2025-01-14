@@ -1,0 +1,178 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+li {
+    list-style: none;
+}
+body {
+    width: 100%;
+    margin: 0 auto;
+    
+}
+
+.main {
+    &__container {
+        max-width: 130vh;
+        width: 100%;
+        min-height: 90vh;
+        margin: 5vh auto;
+        background-color: #e6e6e6;
+        border-radius: 30px;
+        border: 5px solid rgb(130, 108, 80);
+        overflow: hidden;
+    }
+    .header {
+        &__container {
+            margin: 10px 30px 30px 30px;
+        }
+        &__search {
+            padding-top: 8px;
+            float: right;
+            input {
+                border-radius: 10px;
+                outline: none;
+                padding: 5px;
+                height: 30px;
+                max-width: 100px;
+                border: 3px solid black;
+                @media (max-width: 426px) {
+                    height: 20px;
+                    font-size: 10px;
+                    width: 13vh;
+                }
+            }
+            button {
+                padding: 5px;
+                border-radius: 10px;
+                margin-left: 20px;
+                height: 30px;
+                width: 60px;
+                cursor: pointer;
+                background-color: white;
+                color: rgb(107, 107, 107);
+                border: 3px solid black;
+                @media (max-width: 426px) {
+                    position: relative;
+                    top: 0.5vh;
+                    height: 20px;
+                    font-size: 10px;
+                    width: 10vh;
+                }
+            }
+
+        }
+        &__elems {
+            padding-top: 30px;
+            display: flex;
+            gap: 40px;
+            @media (max-width: 426px) {
+                gap: 10px;
+                padding-top: 5px;
+                flex-wrap: wrap;
+            }
+        }
+        &__item {
+            font-family: Protest Strike;
+            font-size: 18px;
+            :hover {
+                text-decoration: underline;
+            }
+            @media (max-width: 426px) {
+                font-size: 16px;
+            }
+        }
+        &__title {
+            color: rgba(107, 107, 107, 0.356)
+        }
+        &__filters {
+            display: block;
+            gap: 10px;
+            font-family: Protest Strike;
+            label {
+                margin-top: 5px;
+                @media (max-width: 426px) {
+                    font-size: 14px;
+                }
+                @media (max-width: 376px) {
+                    font-size: 12px;
+                }
+                @media (max-width: 321px) {
+                    font-size: 8px;
+                }
+            }
+            input {
+                position: relative;
+                right: 3px;
+            }
+        }
+        &__row {
+            display: flex;
+            gap: 10px;
+        }
+    }
+    &__pagination {
+        width: 10vw;
+        margin: 3vh auto;
+        display: flex;
+        gap: 20px;
+        font-size: 30px;
+        cursor: pointer;
+        @media (max-width: 426px) {
+            padding: 0 10px;
+            width: 100vw;
+            margin-left: 10px;
+            flex-wrap: wrap;
+        }
+        @media (max-width: 376px) {
+            margin-left: 10px;
+        }
+        @media (max-width: 321px) {
+            margin-left: 10px;
+
+        }
+        img {
+            width: 30px;
+            height: 30px;
+        }
+        &-num {
+            background-color: burlywood;
+            padding: 5px;
+            border-radius: 10px;
+            border: 3px solid  rgb(130, 108, 80);
+        }
+    }
+    &__pag1, &__pag3 {
+        cursor: pointer;
+    }
+    &__cards {
+        margin-top: 8vh;
+        margin-left: 8vh;
+        gap: 40px;
+        display: flex;
+        max-width: 180vh; 
+        flex-wrap: wrap; 
+        @media (max-width: 426px) {
+            margin-left: 20px;
+            padding-top: 1vh;
+            gap: 25px;
+        }
+        @media (max-width: 376px) {
+            margin-left: 2vh;
+            padding-top: 1vh;
+            gap: 20px;
+        }
+        @media (max-width: 321px) {
+            margin-left: 3vh;
+            padding-top: 1vh;
+            gap: 20px;
+        }
+    }
+}
