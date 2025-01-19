@@ -1,6 +1,5 @@
 .main__img {
-  max-width: 25vh;
-  width: 100%;
+  max-width: 25vw;
   height: 16vh;
 }
 @media (max-width: 321px) {

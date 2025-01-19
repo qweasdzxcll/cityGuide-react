@@ -1,5 +1,4 @@
 a {
-  color: white;
   cursor: pointer;
 }
 
@@ -7,7 +6,7 @@ a {
   position: absolute;
 }
 .header__container {
-  margin: 20px 30px;
+  margin: 2vw 30px;
   display: flex;
 }
 @media (max-width: 426px) {
@@ -16,6 +15,9 @@ a {
   }
 }
 .header__item {
+  color: white;
+}
+.header__item a {
   color: white;
 }
 .header__item :hover {

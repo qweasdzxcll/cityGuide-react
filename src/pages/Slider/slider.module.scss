@@ -2,11 +2,9 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Protest Strike;
 }
 a {
     text-decoration: none;
-    color: white;
 }
 
 li {
@@ -82,6 +80,7 @@ li {
         a {
             padding: 15px 25px;
             width: 201px;
+            color: white;
             @media (max-width: 426px) {
                 width: 250px;
                 padding: 0;

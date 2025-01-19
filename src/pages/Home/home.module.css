@@ -97,12 +97,6 @@ li {
     margin-top: 30px;
   }
 }
-.main__line {
-  transition: all 1s;
-  position: relative;
-  display: flex;
-  gap: 50px;
-}
 .main__img {
   animation-name: opacity;
   animation-duration: 2s;
@@ -121,6 +115,7 @@ li {
   border: 5px solid rgb(184, 184, 206);
   border-radius: 10px;
   background-color: #e1ece9;
+  text-align: center;
 }
 @media (max-width: 426px) {
   .info__container {
@@ -162,7 +157,7 @@ li {
   font-size: 18px;
   margin-top: 30px;
   background-color: grey;
-  max-width: 30vh;
+  max-width: 220px;
   border-radius: 5px;
   font-family: Protest Strike;
 }

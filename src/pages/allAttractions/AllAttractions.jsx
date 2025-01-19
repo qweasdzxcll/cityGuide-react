@@ -1,36 +1,64 @@
 /* eslint-disable */
 import React, {useState, useEffect } from 'react'
-import styles from './allattractions.css'
+import styles from './allattractions.module.css'
 import { useQuery } from '@tanstack/react-query'
-import { getAttractionsPag } from '../../api/attractions'
+import { getAttractionsPag, getAttractionsFilter } from '../../api/attractions'
 import { AllCard, Loader } from '../../components'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useSearchParams, Link } from 'react-router-dom'
 
 export default function AllAttractions() {
 
-    const {page} = useParams()
-    const {limit} = useParams()
+    let rightData
 
-    
-    // const urlParams  = new URLSearchParams(window.location.search)
+    const navigate = useNavigate()
 
-    // const baseLimit = urlParams.get('limit')
-    // const basePage = urlParams.get('page')
+    const [ searchParams, setSearchParams ] = useSearchParams()
 
-    // const [ limit, setLimit ] = useState(baseLimit)
-    // const [ page, setPage ] = useState(basePage)
+    const page = searchParams.get('page')
+    const limit = searchParams.get('limit')
+    const filter = searchParams.get('filter')
 
-    // const { data, isLoading } = useQuery({
-    //     queryKey: ['cards'],
-    //     queryFn: getAttractionsPag(page, limit)
-    // })
+    const changeFilter = (f) => {
+        searchParams.set('filter', f)
+        setSearchParams(searchParams)
+        navigate(`?${searchParams}`)
+    }
 
-    // if(isLoading) return <Loader />
+    const changePage = (p) => {
+        searchParams.set('page', p)
+        setSearchParams(searchParams)
+        navigate(`?${searchParams}`)
+    }
+
+    const { data: pageData, isLoading: pageIsLoading } = useQuery({
+        queryKey: ['cards', page, limit],
+        queryFn: () => getAttractionsPag(page, limit),
+        staleTime: 5 * 60 * 1000
+    })
+
+    const { data: filterData, isLoading: filterIsLoading } = useQuery({
+        queryKey: ['cards', filter],
+        queryFn: () => getAttractionsFilter(filter),
+        staleTime: 5 * 60 * 1000
+    })
+
+    console.log(filterData)
+
+    if (pageData) {
+        rightData = pageData
+    } else if (filterData) {
+        rightData = filterData
+    } else rightData = []
+
+    console.log(rightData)
+
+
+    if(pageIsLoading | filterIsLoading) return <Loader />
 
   return (
     <div>
         <main className={styles.main}>
-            <div className={styles.main__container} id="container">
+            <div className={styles.main__container}>
                 <div className={styles.header}>
                     <div className={styles.header__container}>
                         <div className={styles.header__elems}>
@@ -38,10 +66,10 @@ export default function AllAttractions() {
                                 <p>All Attractions</p>
                             </div>
                             <div className={styles.header__item}>
-                                <a href="venice.html">Venice</a>
+                                <Link to="/home/venice"><a>Venice</a></Link>
                             </div>
                             <div className={styles.header__item}>
-                                <a href="warsaw.html">Warsaw</a>
+                            <Link to="/home/warsaw"><a>Warsaw</a></Link>
                             </div>
                             <div className={styles.header__search}>
                                 <input type="text" id="input" className="input" placeholder="Search.." />
@@ -52,19 +80,37 @@ export default function AllAttractions() {
                                 <div className={styles.header__row}>
                                     <label for="All">All</label>
                                     <input type="radio" id="All" className="radio" name="radio" onclick="reload()" />
-                                    <label for="sort">Sort</label>
-                                    <input type="radio" name="radio" id="sort" onclick="sortHeader()" />
-                                    <label for="filter">Filter</label>
-                                    <input type="radio" name="radio" id="filter" onclick="filterHeader()" />
+                                    <label for="sort">Filter</label>
+                                    <select name="" id="" onChange={(e) => changeFilter(e.target.value)}>
+                                        <option>cultural</option>
+                                        <option>historical</option>
+                                        <option>natural</option>
+                                    </select>
+                                    <label for="sort">Rating</label>
+                                    <input type="radio" name="radio" id="sort" onclick="filterHeader()" />
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div className={styles.main__cards}>
-                    {/* {
-                        data?.map(item => <AllCard item={item}/>)
-                    } */}
+                    {
+                        rightData?.map(item => <AllCard item={item} key={item.id}/>)
+                    }
+                </div>
+                <div className={styles.main__pagination}>
+                    <div className={styles.main__pagination__pagnum}>
+                        <p onClick={() => changePage(1)}>1</p>
+                    </div>
+                    <div className={styles.main__pagination__pagnum}>
+                        <p onClick={() => changePage(2)}>2</p>
+                    </div>
+                    <div className={styles.main__pagination__pagnum}>
+                        <p onClick={() => changePage(3)}>3</p>
+                    </div>
+                    <div className={styles.main__pagination__pagnum}>
+                        <p onClick={() => changePage(4)}>4</p>
+                    </div>
                 </div>
             </div>
         </main>

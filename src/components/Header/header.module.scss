@@ -1,12 +1,11 @@
 a {
-    color: white;
     cursor: pointer;
 }
 
 .header {
     position: absolute;
     &__container {
-        margin: 20px 30px;
+        margin: 2vw 30px;
         display: flex;
         @media (max-width: 426px) {
             width: 300px;
@@ -14,6 +13,9 @@ a {
     }
     &__item {
         color: white;
+        a {
+            color: white;
+        }
         :hover {
             text-decoration: underline;
         }

@@ -1,5 +1,5 @@
 /* eslint-disable */
-import { Slider, Home, Attractions, Reviews, AllAttractions } from "./pages";
+import { Slider, Home, Attractions, Reviews, AllAttractions, OneAttraction } from "./pages";
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
@@ -18,6 +18,7 @@ function App() {
           <Route path='/attractions/:city' element={<Attractions />} />
           <Route path='/reviews' element={<Reviews />} />
           <Route path='/all-attractions' element={<AllAttractions />} />
+          <Route path='/one-attraction/:id' element={<OneAttraction />} />
         </Routes>
       </BrowserRouter>
     </QueryClientProvider>

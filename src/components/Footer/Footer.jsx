@@ -1,5 +1,6 @@
 import React from 'react'
 import styles from './footer.module.scss'
+import { Link } from 'react-router-dom'
 
 export default function Footer() {
   return (
@@ -8,10 +9,10 @@ export default function Footer() {
             <div className={styles.footer__container}>
                 <div className={styles.footer__block}>
                     <div className={styles.footer__item}>
-                        <a href="contacts.html">Оставить отзыв</a>
+                        <Link to='/reviews'><a>Оставить отзыв</a></Link>
                     </div>
                     <div className={styles.footer__item}>
-                        <a href="all_attr.html">Посмотреть все достопримечательности</a>
+                        <Link to='/all-attractions?page=1&limit=4'><a>Посмотреть все достопримечательности</a></Link>
                     </div>
                 </div>
                 <div className={styles.footer__block}>

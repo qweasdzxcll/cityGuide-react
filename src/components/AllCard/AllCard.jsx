@@ -1,16 +1,17 @@
 /* eslint-disable */
 import React from 'react'
-import styles from './AllCard.css'
+import styles from './AllCard.module.css'
+import { Link } from 'react-router-dom'
 
 export default function AllCard({item}) {
   return (
-    <div class={styles.main__card}>
-        <div class={styles.main__subtitle}>
+    <Link to={`/one-attraction/${item.id}`}><div className={styles.main__card}>
+        <div className={styles.main__subtitle}>
             <p>{item.title}</p>
         </div>
-        <div class={styles.main__img}>
+        <div className={styles.main__img}>
             <img src={item.img3} alt="" />
         </div>
-    </div>
+    </div></Link>
   )
 }

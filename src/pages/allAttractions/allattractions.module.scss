@@ -6,7 +6,6 @@
 
 a {
     text-decoration: none;
-    color: black;
 }
 
 li {
@@ -30,6 +29,10 @@ body {
         overflow: hidden;
     }
     .header {
+        option,
+        select {
+            font-weight: 900;
+        }
         &__container {
             margin: 10px 30px 30px 30px;
         }
@@ -73,6 +76,7 @@ body {
             padding-top: 30px;
             display: flex;
             gap: 40px;
+            color: black;
             @media (max-width: 426px) {
                 gap: 10px;
                 padding-top: 5px;
@@ -142,12 +146,12 @@ body {
             width: 30px;
             height: 30px;
         }
-        &-num {
-            background-color: burlywood;
-            padding: 5px;
-            border-radius: 10px;
-            border: 3px solid  rgb(130, 108, 80);
-        }
+    &__pagnum {
+        background-color: burlywood;
+        padding: 5px 10px;
+        border-radius: 10px;
+        border: 3px solid  rgb(130, 108, 80);
+    }
     }
     &__pag1, &__pag3 {
         cursor: pointer;
