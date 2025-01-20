@@ -15,10 +15,10 @@ export default function Card({ items }) {
             <div className={styles.main__rows}>
                 <div className={styles.main__row}>
                     <div className={`${styles.main__img} ${styles.main__gor}`}>
-                        <img src={items.img1} alt="img" />
+                        <img src={items.img3} alt="img" />
                     </div>
                     <div className={`${styles.main__img} ${styles.main__vert}`}>
-                        <img src={items.img2} alt="img" />
+                        <img src={items.img1} alt="img" />
                     </div>
                 </div>
                 <div className={styles.main__text}>
@@ -26,10 +26,10 @@ export default function Card({ items }) {
                 </div>
                 <div className={styles.main__row}>
                     <div className={`${styles.main__img} ${styles.main__vert}`}>
-                        <img src={items.img4} alt="img" />
+                        <img src={items.img2} alt="img" />
                     </div>
                     <div className={`${styles.main__img} ${styles.main__gor}`}>
-                        <img src={items.img3} alt="img" />
+                        <img src={items.img4} alt="img" />
                     </div>
                 </div>
             </div>

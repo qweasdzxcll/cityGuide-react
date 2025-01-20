@@ -7,8 +7,8 @@ import { getAllAttractions } from '../../api/attractions'
 
 export default function Reviews() {
 
-  const [ formData, setFormData] = useState({
-    title: '',
+  const [formData, setFormData] = useState({
+    title: '' || 'The Grand Canal',
     firstname: '',
     lastname: '',
     email: '',
@@ -20,28 +20,28 @@ export default function Reviews() {
   const handleChange = (e) => {
     const { name, value } = e.target
     setFormData((prevData) => ({
-        ...prevData,
-        [name]: value
+      ...prevData,
+      [name]: value
     }))
-  } 
+  }
 
   const submitForm = (e) => {
     e.preventDefault()
     fetch('https://672c8d021600dda5a9f8e610.mockapi.io/reviews', {
       method: 'POST',
       headers: {
-          'Content-Type': 'application/json'
+        'Content-Type': 'application/json'
       },
       body: JSON.stringify(formData)
     })
-    .then(response => {
-      if(!response.ok) {
+      .then(response => {
+        if (!response.ok) {
           throw new Error('Ошибка запроса')
-      }
-    })
-    .then(response => {
-      navigate('/all-attractions?page=1&limit=4')
-    })
+        }
+      })
+      .then(response => {
+        navigate(`/one-attraction/${formData.title}`)
+      })
   }
 
   const { data } = useQuery({
@@ -82,7 +82,7 @@ export default function Reviews() {
               <input type="email" name="email" id="email" value={formData.email} onChange={handleChange} />
               <label htmlFor="comment">Comment: </label>
               <textarea name="comment" id="comment" required value={formData.comment} onChange={handleChange} />
-              <input type="submit" value="Send.." id="submit"/>
+              <input type="submit" value="Send.." id="submit" style={{ cursor: 'pointer' }} />
             </form>
           </div>
         </div>

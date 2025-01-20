@@ -110,7 +110,7 @@ li {
 }
 
 .info__container {
-  margin: 10vh 15vh;
+  margin: 5vw 10vw;
   gap: 30px;
   border: 5px solid rgb(184, 184, 206);
   border-radius: 10px;
@@ -144,7 +144,7 @@ li {
 }
 .info__text {
   padding: 30px 50px;
-  font-size: 18px;
+  font-size: 1.3vw;
   text-align: center;
 }
 .info__text p {

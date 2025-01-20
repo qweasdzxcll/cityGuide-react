@@ -112,13 +112,12 @@ li {
 
 .info {
     &__container {
-        margin: 10vh 15vh;
+        margin: 5vw 10vw;
         gap: 30px;
         border: 5px solid rgb(184, 184, 206);
         border-radius: 10px;
         background-color: #e1ece9;
         text-align: center;
-
         @media (max-width: 426px) {
             margin-top: 200px;
             margin-left: 5px;
@@ -138,7 +137,6 @@ li {
 
     &__row {
         display: flex;
-
         @media (max-width: 426px) {
             display: block;
         }
@@ -146,7 +144,7 @@ li {
 
     &__text {
         padding: 30px 50px;
-        font-size: 18px;
+        font-size: 1.3vw;
         text-align: center;
         p {
             padding-bottom: 10px;

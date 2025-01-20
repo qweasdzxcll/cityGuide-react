@@ -18,7 +18,7 @@ function App() {
           <Route path='/attractions/:city' element={<Attractions />} />
           <Route path='/reviews' element={<Reviews />} />
           <Route path='/all-attractions' element={<AllAttractions />} />
-          <Route path='/one-attraction/:id' element={<OneAttraction />} />
+          <Route path='/one-attraction/:title' element={<OneAttraction />} />
         </Routes>
       </BrowserRouter>
     </QueryClientProvider>

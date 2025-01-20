@@ -4,7 +4,7 @@
   flex-wrap: wrap;
 }
 .main__card {
-  margin: 5vh 15vh;
+  margin: 5vh 3vw;
   cursor: pointer;
 }
 @media (max-width: 426px) {
@@ -16,7 +16,7 @@
 .main__container {
   background-color: #e6e6e6;
   border-radius: 30px;
-  max-width: 70vw;
+  max-width: 75vw;
   margin: 3vh auto;
 }
 @media (max-width: 426px) {
@@ -49,10 +49,9 @@
   }
 }
 .main__text {
-  max-width: 40vw;
+  width: 30vw;
   height: 100%;
-  width: 100%;
-  font-size: 1.2vw;
+  font-size: 1.3vw;
   text-align: center;
 }
 @media (max-width: 426px) {
@@ -61,14 +60,14 @@
     font-size: 11px;
   }
 }
-.main__img {
-  outline: 7px solid grey;
-  outline-offset: -6px;
+.main__img img {
+  border: 5px solid grey;
+  border-radius: 10px;
 }
 .main__gor {
   background-color: rgba(0, 0, 0, 0.351);
-  max-width: 30vw;
-  max-height: 7vw;
+  width: 14vw;
+  height: 9vw;
 }
 @media (max-width: 426px) {
   .main__gor {
@@ -79,10 +78,11 @@
 .main__gor img {
   width: 100%;
   height: 100%;
+  border-radius: 5px;
 }
 .main__vert {
-  max-width: 20vw;
-  max-height: 7vw;
+  width: 7vw;
+  height: 9vw;
 }
 @media (max-width: 426px) {
   .main__vert {
@@ -93,6 +93,7 @@
 .main__vert img {
   width: 100%;
   height: 100%;
+  border-radius: 5px;
 }
 .main__modal {
   position: fixed;

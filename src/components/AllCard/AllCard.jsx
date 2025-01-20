@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 
 export default function AllCard({item}) {
   return (
-    <Link to={`/one-attraction/${item.id}`}><div className={styles.main__card}>
+    <Link to={`/one-attraction/${item.title}`}><div className={styles.main__card}>
         <div className={styles.main__subtitle}>
             <p>{item.title}</p>
         </div>

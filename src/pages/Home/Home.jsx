@@ -8,7 +8,7 @@ import { useParams, Link } from 'react-router-dom'
 export default function Home() {
     let data
 
-    const {city} = useParams()
+    const { city } = useParams()
 
     if (city == 'venice') {
         data = {
@@ -53,12 +53,12 @@ export default function Home() {
 
     const Right = () => {
         setPosition(position + imageWidth)
-        if (position >= imageWidth*3) {
+        if (position >= imageWidth * 3) {
             setPosition(0)
         }
     }
 
-    const styleLine={
+    const styleLine = {
         transition: 'all 1s',
         position: 'relative',
         display: 'flex',

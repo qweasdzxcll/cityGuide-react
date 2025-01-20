@@ -15,13 +15,14 @@ export default function Attractions() {
     navigate(-1)
   }
 
-  const {city} = useParams()
+  const { city } = useParams()
 
   console.log(city)
 
   const { data, isLoading } = useQuery({
     queryKey: ['cards', city],
-    queryFn: () => getCityAttractions(city)
+    queryFn: () => getCityAttractions(city),
+    staleTime: 10 * 60 * 1000
   })
 
   console.log()
