@@ -27,7 +27,7 @@ export default function Header({attr}) {
                             <Link to={`/attractions/${attr}`}><a>Attractions</a></Link>
                         </div>
                         <div className={styles.header__item}>
-                            <Link to='/all-attractions?page=1&limit=4'><a>All Attractions</a></Link>
+                            <Link to='/all-attractions?page=1&limit=4&filter=all'><a>All Attractions</a></Link>
                         </div>
                         <div className={styles.header__item}>
                             <Link to="/reviews"><a>Reviews</a></Link>

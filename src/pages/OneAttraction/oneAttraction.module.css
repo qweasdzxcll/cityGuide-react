@@ -219,3 +219,7 @@ li {
 .main__reviews {
   margin-top: 3vh;
 }
+.main__revtitle {
+  font-size: 24px;
+  font-weight: 700;
+}

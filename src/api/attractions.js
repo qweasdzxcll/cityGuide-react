@@ -30,15 +30,15 @@ export function getCityAttractions(city) {
     })
 }
 
-export function getAttractionsFilter(f) {
-    return fetch(`${BASE_URL}/?filter=${f}`)
+export function getAttractionsFilter(f, p, l) {
+    return fetch(`${BASE_URL}/?filter=${f}&page=${p}&limit=${l}`)
     .then(res => {
         return res.json()
     })
 }
 
-export function getAttractionsSort() {
-    return fetch(`${BASE_URL}?sortBy=rating&order=desc`)
+export function getAttractionsSort(sort, order, p, l) {
+    return fetch(`${BASE_URL}?sortBy=${sort}&order=${order}&page=${p}&limit=${l}`)
     .then(res => {
         return res.json()
     })

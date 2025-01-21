@@ -100,3 +100,25 @@
         }
     }
 }
+.gallery {
+    &__container {
+        text-align: center;
+        align-items: center;
+        width: 100vw;
+        height: 100%;
+        background-color: #00000079;
+        margin: 0;
+        padding: 0;
+        position: absolute;
+        z-index: 9999999;
+        left: 0;
+        bottom: 0;
+        padding-top: 500px;
+    }
+    &__row {
+        position: relative;
+        display: flex;
+        max-width: 20vw;
+        margin: 0 auto;
+    }
+}

@@ -37,11 +37,12 @@
 .reviews__rtitle {
   font-size: 16px;
   max-width: 100vh;
-  font-weight: 900;
+  font-weight: 500;
   gap: 5px;
 }
 .reviews__comment {
   font-size: 18px;
+  font-weight: 500;
 }
 @media (max-width: 426px) {
   .reviews__comment {

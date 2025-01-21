@@ -26,7 +26,7 @@ export default function OneAttraction() {
     const { data: dataReviews, isLoading: isLoadingReviews, isError: isErrorReview } = useQuery({
         queryFn: () => getReviews(title),
         queryKey: ['reviews', title],
-        staleTime: 5 * 60 * 1000
+        staleTime: 1 * 60 * 1000
     })
 
     if (isLoadingOne | isLoadingReviews) return <Loader />
@@ -65,6 +65,7 @@ export default function OneAttraction() {
                     <iframe src={dataOne[0].map} width="822" height="500" allowfullscreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
                 </div>
                 <div className={styles.main__reviews}>
+                    <p className={styles.main__revtitle}>Отзывы</p>
                     {
                         dataReviews?.map(item => <Reviews item={item}/>)
                     }
