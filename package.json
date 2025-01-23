@@ -73,7 +73,9 @@
     "test": "react-scripts test",
     "precommit": "lint-staged",
     "eslint": "node_modules/.bin/eslint src/",
-    "lint": "cross-env NODE_ENV=development eslint ."
+    "lint": "cross-env NODE_ENV=development eslint .",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -99,6 +101,7 @@
     "eslint": "^8.57.1",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.2.1",
+    "gh-pages": "^6.3.0",
     "husky": "^9.1.7",
     "install": "^0.13.0",
     "lint-staged": "^15.3.0",
@@ -161,5 +164,6 @@
     "presets": [
       "react-app"
     ]
-  }
+  },
+  "homepage": "https://qweasdzxcll.github.io/cityGuide-react/"
 }
