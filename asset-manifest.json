@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/cityGuide-react/static/css/main.e2f545b2.css",
-    "main.js": "/cityGuide-react/static/js/main.3356bc05.js",
+    "main.js": "/cityGuide-react/static/js/main.10c24b07.js",
     "index.html": "/cityGuide-react/index.html",
     "main.e2f545b2.css.map": "/cityGuide-react/static/css/main.e2f545b2.css.map",
-    "main.3356bc05.js.map": "/cityGuide-react/static/js/main.3356bc05.js.map"
+    "main.10c24b07.js.map": "/cityGuide-react/static/js/main.10c24b07.js.map"
   },
   "entrypoints": [
     "static/css/main.e2f545b2.css",
-    "static/js/main.3356bc05.js"
+    "static/js/main.10c24b07.js"
   ]
 }
