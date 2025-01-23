@@ -1,20 +1,12 @@
+import { getCLS, getFID, getFCP, getLCP, getTTFB } from 'web-vitals';
+
 const reportWebVitals = (onPerfEntry) => {
-  if (onPerfEntry && onPerfEntry instanceof Function) {
-    import('web-vitals')
-      .then(({ getCLS, getFID, getFCP, getLCP, getTTFB }) => {
-        if (getCLS) {
-          getCLS(onPerfEntry);
-        } else {
-          console.error('getCLS is not defined');
-        }
-        getFID(onPerfEntry);
-        getFCP(onPerfEntry);
-        getLCP(onPerfEntry);
-        getTTFB(onPerfEntry);
-      })
-      .catch((error) => {
-        console.error('Ошибка при импорте web-vitals:', error);
-      });
+  if (onPerfEntry && typeof onPerfEntry === 'function') {
+    getCLS(onPerfEntry);
+    getFID(onPerfEntry);
+    getFCP(onPerfEntry);
+    getLCP(onPerfEntry);
+    getTTFB(onPerfEntry);
   }
 };
 
