@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import styles from './slider.module.css'
 import { useDispatch } from 'react-redux'
 import { changePage } from '../../redux/actions/page'
+import venice from '../../../build/venice.jpg'
 
 export default function Slider() {
     const [position, setPosition] = useState(0)
@@ -48,7 +49,7 @@ export default function Slider() {
                 <div className={styles.main__container}>
                     <div className={styles.main__line} ref={line} style={lineStyles}>
                         <div ref={image} className={styles.main__img}>
-                            <img className={styles.main__w} src="/venice.jpg" />
+                            <img className={styles.main__w} src={venice} />
                             <div className={styles.main__title}>
                                 <h1>Venice</h1>
                             </div>

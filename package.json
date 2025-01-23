@@ -1,6 +1,7 @@
 {
   "name": "cityreact",
   "version": "0.1.0",
+  "homepage": "https://qweasdzxcll.github.io/cityGuide-react/",
   "private": true,
   "dependencies": {
     "@babel/core": "^7.16.0",
@@ -164,6 +165,5 @@
     "presets": [
       "react-app"
     ]
-  },
-  "homepage": "https://qweasdzxcll.github.io/cityGuide-react/"
+  }
 }
