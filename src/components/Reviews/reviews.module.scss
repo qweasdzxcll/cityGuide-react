@@ -4,10 +4,12 @@
         display: flex;
         gap: 30px;
         flex-wrap: wrap;
+
         @media(max-width: 321px) {
             width: 300px;
         }
     }
+
     &__review {
         min-height: 10px;
         padding: 10px;
@@ -17,38 +19,48 @@
         border-top: 5px solid #c3d2e8;
         border-bottom: 5px solid #c3d2e8;
         margin-top: 2vh;
+
         @media(max-width: 426px) {
-            width: 420px;
+            width: 410px;
         }
+
         @media(max-width: 376px) {
             width: 370px;
         }
+
         @media(max-width: 321px) {
             width: 315px;
         }
     }
+
     &__rtitle {
         font-size: 16px;
         max-width: 100vh;
         font-weight: 500;
         gap: 5px;
     }
+
     &__comment {
         font-size: 18px;
         font-weight: 500;
+
         @media(max-width: 426px) {
             font-size: 16px;
         }
+
         @media(max-width: 426px) {
             width: 350px;
         }
+
         @media(max-width: 426px) {
             width: 315px;
         }
+
         p {
             @media(max-width: 426px) {
                 width: 350px;
             }
+
             @media(max-width: 321px) {
                 width: 305px;
             }

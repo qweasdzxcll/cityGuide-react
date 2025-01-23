@@ -17,7 +17,6 @@ export default function Card({ items }) {
         } else {
             setCount(0)
         }
-        console.log(count)
     }
 
     const prevImg = () => {
@@ -69,17 +68,17 @@ export default function Card({ items }) {
             </div>
             <div className="gallery" ref={modal} style={modalStyle}>
                 <div className={styles.gallery__container}>
-                    <div className="gallery__back" onClick={() => changeGallery([], 'none')}>
-                        <p>back</p>
+                    <div className={styles.gallery__back} onClick={() => changeGallery([], 'none')}>
+                        <img src="/close.png" alt="werty" />
                     </div>
                     <div className={styles.gallery__row}>
-                        <div className="gallery__left">
+                        <div className={styles.gallery__left}>
                             <img src="/Prev Page.png" alt="back" onClick={() => prevImg()} />
                         </div>
-                        <div className="gallery__img">
+                        <div className={styles.gallery__img}>
                             <img src={gallery[count]} alt="img" />
                         </div>
-                        <div className="gallery__right" onClick={() => nextImg()}>
+                        <div className={styles.gallery__right} onClick={() => nextImg()}>
                             <img src="/Next Page.png" alt="next" />
                         </div>
                     </div>

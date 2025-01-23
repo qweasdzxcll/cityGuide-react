@@ -30,7 +30,8 @@
         font-size: 12px;
         max-width: 25vh;
         @media (max-width: 426px) {
-            font-size: 12px;
+            font-size: 10px;
+            max-width: 100px;
         }
         @media (max-width: 321px) {
             font-size: 10px;

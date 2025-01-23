@@ -37,7 +37,8 @@
 }
 @media (max-width: 426px) {
   .main__subtitle {
-    font-size: 12px;
+    font-size: 10px;
+    max-width: 100px;
   }
 }
 @media (max-width: 321px) {

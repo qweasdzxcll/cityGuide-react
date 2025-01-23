@@ -1,7 +1,6 @@
-/* eslint-disable */
 import React from 'react'
 import styles from './oneAttraction.module.css'
-import { useNavigate, useSearchParams, useParams } from 'react-router-dom'
+import { useNavigate, useParams, Link } from 'react-router-dom'
 import { useQuery } from '@tanstack/react-query'
 import { getOneAttraction } from '../../api/attractions'
 import { getReviews } from '../../api/reviews'
@@ -36,7 +35,7 @@ export default function OneAttraction() {
             <div className={styles.main__container}>
                 <div className={styles.main__elems}>
                     <div className={styles.main__attrs}>
-                        <a onClick={() => goBack()}><img src='/Next page.png' /></a>
+                        <a onClick={() => goBack()}><img src='/Prev page.png' /></a>
                     </div>
                     <div className={styles.main__title} id="title">
                         <p>{dataOne[0].title}</p>
@@ -66,9 +65,13 @@ export default function OneAttraction() {
                 </div>
                 <div className={styles.main__reviews}>
                     <p className={styles.main__revtitle}>Отзывы</p>
+                    <hr />
                     {
-                        dataReviews?.map(item => <Reviews item={item}/>)
+                        dataReviews?.map(item => <Reviews item={item} key={item.id} />)
                     }
+                    <div className={styles.main__revtitle}>
+                        <Link to="/reviews"><a>Оставить отзыв</a></Link>
+                    </div>
                 </div>
             </div>
         </div>

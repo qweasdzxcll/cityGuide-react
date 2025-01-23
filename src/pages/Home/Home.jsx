@@ -1,4 +1,3 @@
-/* eslint-disable */
 import React, { useState, useRef, useEffect } from 'react'
 import { Header, Footer } from '../../components/'
 import { useSelector } from 'react-redux'
@@ -37,7 +36,10 @@ export default function Home() {
         backgroundImage: `url(${data.bg})`,
         backgroundSize: '100%',
         backgroundRepeat: 'no-repeat',
-        backgroundAttachment: 'fixed'
+        backgroundAttachment: 'fixed',
+        // @media(maxLength: "426px") {
+        //     backgroundImage: 'none'
+        // }
     }
 
     const [position, setPosition] = useState(0)
@@ -63,7 +65,7 @@ export default function Home() {
         position: 'relative',
         display: 'flex',
         gap: '50px',
-        right: `${position}px`
+        right: `${position}px`,
     }
 
     setTimeout(() => Right(), 3000)
@@ -109,7 +111,7 @@ export default function Home() {
                             <iframe
                                 src={data.map}
                                 width="500" height="500" style={{ border: "0" }} allowfullscreen="" loading="lazy"
-                                referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                referrerPolicy="no-referrer-when-downgrade"></iframe>
                         </div>
                         <div className={styles.info__text}>
                             <p>{data.info}</p>

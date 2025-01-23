@@ -23,11 +23,6 @@ li {
   padding: 3vh;
   border-radius: 30px;
 }
-@media (max-width: 426px) {
-  .header__container {
-    margin-left: 0;
-  }
-}
 .header__elem {
   font-size: 24px;
   color: black;

@@ -1,16 +1,28 @@
 /* eslint-disable */
-import React from 'react'
+import React, { useState } from 'react'
 import styles from './header.module.css'
 import { Link } from 'react-router-dom'
 
 
 export default function Header({attr}) {
 
-    // const navigate = useNavigate()
+    const [ display, setDisplay ] = useState('none')
 
-    // const newPath = (city) => {
-    //     navigate(`/home?city=${city}
-    // }
+    const changeDisplay = (d) => {
+        setDisplay(d)
+    }
+
+    const burgerStyle = {
+        display: `${display}`,
+        backgroundColor: 'rgba(128, 128, 128, 0.719)',
+        borderRadius: '30px',
+        color: 'white',
+        fontFamily: 'Protest Strike',
+        position: 'absolute',
+        zIndex: 12388750,
+        top: '30px',
+        right: '150px'
+    }
 
     return (
         <div>
@@ -32,30 +44,33 @@ export default function Header({attr}) {
                         <div className={styles.header__item}>
                             <Link to="/reviews"><a>Reviews</a></Link>
                         </div>
-                        <div className={styles.header__burgerbtn}>
-                            <img src="https://s.iimg.su/s/11/2i1tCX6V0atlpzxmoJE4STXIuSYfGd3QHoWXeeKy.png" alt="burger" />
+                        <div className={styles.header__burgerbtn} onClick={() => changeDisplay('block')}>
+                            <img src="/burger.png" alt="burger" />
                         </div>
-                        {/* <div className={styles.header__burger}>
-                            <div className={styles.header__burger-cont}>
-                                <div className={styles.header__burger-elems}>
-                                    <div className={styles.header__burger-close}>
-                                        <img src="https://s.iimg.su/s/11/6l1YGOA4UTtqmY86cCFeqYMuJkFrUf7X4iM97rse.png" alt="close" />
+                        <div className='header__burger' style={burgerStyle}>
+                            <div className={styles.header__burgercont}>
+                                <div className={styles.header__burgerelems}>
+                                    <div className={styles.header__burgerclose} onClick={() => changeDisplay('none')}>
+                                        <img src="/close.png" alt="close" />
                                     </div>
-                                    <div className={styles.header__burger-item}>
-                                        <a>Venice</a>
+                                    <div className={styles.header__burgeritem}>
+                                        <Link to="/home/venice"><a>Venice</a></Link>
                                     </div>
-                                    <div className={styles.header__burger-item}>
-                                        <p>Warsaw</p>
+                                    <div className={styles.header__burgeritem}>
+                                        <Link to="/home/warsaw"><a>Warsaw</a></Link>
                                     </div>
-                                    <div className={styles.header__burger-item}>
-                                        <a>All Attractions</a>
+                                    <div className={styles.header__burgeritem}>
+                                        <Link to={`/attractions/${attr}`}><a>Attractions</a></Link>
                                     </div>
-                                    <div className={styles.header__burger-item}>
-                                        <a>Reviews</a>
+                                    <div className={styles.header__burgeritem}>
+                                        <Link to='/all-attractions?page=1&limit=4&filter=all'><a>All Attractions</a></Link>
+                                    </div>
+                                    <div className={styles.header__burgeritem}>
+                                        <Link to="/reviews"><a>Reviews</a></Link>
                                     </div>
                                 </div>
                             </div>
-                        </div> */}
+                        </div>
                     </div>
                 </div>
             </header>

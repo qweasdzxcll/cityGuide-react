@@ -1,4 +1,3 @@
-/* eslint-disable */
 import React, { useState, useRef, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import styles from './slider.module.css'

@@ -43,3 +43,10 @@ export function getAttractionsSort(sort, order, p, l) {
         return res.json()
     })
 }
+
+export function getAttractionSearch(title, p, l) {
+    return fetch(`${BASE_URL}?page=${p}&limit=${l}&title=${title}`)
+    .then(res => {
+        return res.json()
+    })
+}

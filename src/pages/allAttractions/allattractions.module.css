@@ -35,7 +35,6 @@ body {
   margin: 10px 30px 30px 30px;
 }
 .main .header__search {
-  padding-top: 8px;
   float: right;
 }
 .main .header__search input {
@@ -142,20 +141,7 @@ body {
 }
 @media (max-width: 426px) {
   .main__pagination {
-    padding: 0 10px;
-    width: 100vw;
-    margin-left: 10px;
-    flex-wrap: wrap;
-  }
-}
-@media (max-width: 376px) {
-  .main__pagination {
-    margin-left: 10px;
-  }
-}
-@media (max-width: 321px) {
-  .main__pagination {
-    margin-left: 10px;
+    width: 60vw;
   }
 }
 .main__pagination img {
@@ -176,15 +162,8 @@ body {
   margin-left: 8vh;
   gap: 40px;
   display: flex;
-  max-width: 180vh;
+  max-width: 100vw;
   flex-wrap: wrap;
-}
-@media (max-width: 426px) {
-  .main__cards {
-    margin-left: 20px;
-    padding-top: 1vh;
-    gap: 25px;
-  }
 }
 @media (max-width: 376px) {
   .main__cards {

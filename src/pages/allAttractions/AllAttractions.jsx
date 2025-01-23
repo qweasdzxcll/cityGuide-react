@@ -1,32 +1,29 @@
-/* eslint-disable */
 import React, { useState, useRef, useEffect } from 'react'
 import styles from './allattractions.module.css'
 import { useQuery } from '@tanstack/react-query'
-import { getAttractionsPag, getAttractionsFilter, getAttractionsSort, getOneAttraction } from '../../api/attractions'
+import { getAttractionsPag, getAttractionsFilter, getAttractionsSort, getOneAttraction, getAttractionSearch } from '../../api/attractions'
 import { AllCard, Loader } from '../../components'
 import { useNavigate, useSearchParams, Link } from 'react-router-dom'
-import useDebounce from './debounce'
+import { debounce } from 'lodash'
 
 export default function AllAttractions() {
 
-    const [ searchItem, setSearchItem ] = useState('')
+    const [ inputValue, setInputValue ] = useState('')
+    const [ result, setResult ] = useState('')
 
-    const [ result, setResult ] = useState([])
+    const changeInput = (v) => {
+        setInputValue(v)
+    }
 
-    const debounceSearchItem = useDebounce(searchItem, 1000)
-
-    const inputDebounce = (event) => {
-        setSearchItem(event.target.value);
-    };
+    const debouncedSave = debounce((value) => {
+        setResult(value)
+        value.length > 0 ? setSearchParams({'page': 1, 'limit': 4, 'filter': 'all', 'title': value}) : setSearchParams({'page': 1, 'limit': 4, 'filter': 'all'})
+    }, 1000)
 
     useEffect(() => {
-        if (debounceSearchItem) {
-            getOneAttraction(debounceSearchItem)
-            .then(results => {
-                setResult(results)
-            })
-        }
-    }, [debounceSearchItem])
+        debouncedSave(inputValue)
+        return () => debouncedSave.cancel()
+    }, [inputValue])
 
     const navigate = useNavigate()
 
@@ -45,8 +42,6 @@ export default function AllAttractions() {
 
     const [rightData, setRightData] = useState([])
 
-    const [search, setSearch] = useState('')
-
     const [searchParams, setSearchParams] = useSearchParams()
 
     const page = searchParams.get('page') || 1
@@ -54,20 +49,18 @@ export default function AllAttractions() {
     const filter = searchParams.get('filter') || 'def'
     const sortBy = searchParams.get('sortBy') || 'def'
     const order = searchParams.get('order') || 'def'
+    const title = searchParams.get('title') || ''
 
     const [selectFilter, setSelectFilter] = useState('all')
 
     const changePage = (p) => {
-        if (sortBy == 'def' && order == 'def') {
+        if (sortBy == 'def' && order == 'def' && title.length < 1) {
             setSearchParams({ 'page': p, 'limit': limit, 'filter': selectFilter })
-        } else {
+        } else if (sortBy.length > 0 & order.length > 0 && title.length < 1) {
             setSearchParams({ 'page': p, 'limit': limit, 'sortBy': sortBy, 'order': order })
+        } else if (title.length > 0) {
+            setSearchParams({ 'page': p, 'limit': limit, 'filter': selectFilter, 'title': result })
         }
-    }
-
-    const inputSetSearch = (event) => {
-        const searchInput = event.target.value
-        setSearch(searchInput)
     }
 
     const changeFilter = (f) => {
@@ -80,28 +73,28 @@ export default function AllAttractions() {
         queryKey: ['cards', page, limit],
         queryFn: () => getAttractionsPag(page, limit),
         staleTime: 5 * 60 * 1000,
-        enabled: selectFilter == 'all' && sortBy == 'def' && order == 'def'
+        enabled: selectFilter == 'all' && sortBy == 'def' && order == 'def' && result.length <= 0
     })
 
-    const { data: filterData, isLoading: filterIsLoading } = useQuery({
+    const { data: filterData, isLoading: filterIsLoading, isError: filterError } = useQuery({
         queryKey: ['cards', selectFilter, page, limit],
         queryFn: () => getAttractionsFilter(selectFilter, page, limit),
         staleTime: 5 * 60 * 1000,
-        enabled: selectFilter != 'all' && sortBy == 'def'
+        enabled: selectFilter != 'all' && sortBy == 'def' && result.length <= 0
     })
 
-    const { data: sortData, isLoading: sortIsLoading } = useQuery({
+    const { data: sortData, isLoading: sortIsLoading, isError: sortError } = useQuery({
         queryKey: ['cards', sortBy, order, page, limit],
         queryFn: () => getAttractionsSort(sortBy, order, page, limit),
         staleTime: 5 * 60 * 1000,
-        enabled: !!checkbox && sortBy == 'rating' && order == 'desc' && filter == 'def'
+        enabled: !!checkbox && sortBy == 'rating' && order == 'desc' && filter == 'def' && result.length <= 0
     })
 
-    const { data: searchData, isLoading: searchIsLoading } = useQuery({
-        queryKey: ['cards', search],
-        queryFn: () => getOneAttraction(search),
+    const { data: searchData, isLoading: searchIsLoading, isError: searchError } = useQuery({
+        queryKey: ['cards', result, page, limit],
+        queryFn: () => getAttractionSearch(result, page, limit),
         staleTime: 5 * 60 * 1000,
-        enabled: search.length > 0 && sortBy == 'def'
+        enabled: result.length > 0 && sortBy == 'def'
     })
 
     useEffect(() => {
@@ -117,9 +110,7 @@ export default function AllAttractions() {
         
     }, [sortData, filterData, searchData, pageData])
 
-    console.log(searchData)
-
-    if (pageIsLoading | filterIsLoading | sortIsLoading, searchIsLoading) return <Loader />
+    if (pageIsLoading | filterIsLoading | sortIsLoading | searchIsLoading) return <Loader />
 
     return (
         <div>
@@ -138,7 +129,7 @@ export default function AllAttractions() {
                                     <Link to="/home/warsaw"><a>Warsaw</a></Link>
                                 </div>
                                 <div className={styles.header__search}>
-                                    <input type="text" id="input" className="input" placeholder="Search.."onChange={inputDebounce} value={search} />
+                                    <input type="text" id="input" className="input" placeholder="Search.."onChange={(e) => changeInput(e.target.value)} value={inputValue} />
                                 </div>
                                 <div className={styles.header__filters}>
                                     <div className={styles.header__row} id="header">

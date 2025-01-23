@@ -56,6 +56,7 @@ li {
   .form__container {
     max-width: 60vw;
     height: 70vh;
+    margin-left: 30px;
   }
 }
 .form__form {
@@ -65,7 +66,7 @@ li {
 }
 @media (max-width: 426px) {
   .form__form {
-    margin: 5vw 10px;
+    margin: 5vw 30px;
   }
 }
 .form__form label {
@@ -83,6 +84,14 @@ li {
   border-radius: 5px;
   margin-bottom: 5px;
   outline: none;
+}
+@media (max-width: 426px) {
+  .form__form input,
+  .form__form textarea,
+  .form__form option,
+  .form__form select {
+    width: 170px;
+  }
 }
 .form__form textarea {
   padding-top: 5px;

@@ -1,4 +1,3 @@
-/* eslint-disable */
 import React, { useState } from 'react'
 import styles from './reviews.module.css'
 import { Link, useNavigate } from 'react-router-dom'
@@ -17,13 +16,14 @@ export default function Reviews() {
 
   const navigate = useNavigate()
 
-  const handleChange = (e) => {
+  const changeForm = (e) => {
     const { name, value } = e.target
     setFormData((prevData) => ({
       ...prevData,
       [name]: value
     }))
   }
+
 
   const submitForm = (e) => {
     e.preventDefault()
@@ -69,19 +69,19 @@ export default function Reviews() {
           <div className={styles.form__form}>
             <form method="post" id="form" onSubmit={submitForm}>
               <label htmlFor="title">Title of attraction: </label>
-              <select name="title" id="" className={styles.form__select} value={formData.title} onChange={handleChange}>
+              <select name="title" id="" className={styles.form__select} value={formData.title} onChange={changeForm}>
                 {
                   data?.map(item => <option key={item.id}>{item.title}</option>)
                 }
               </select>
               <label htmlFor="firstname">Firstname: </label>
-              <input type="text" name="firstname" id="firstname" required value={formData.firstname} onChange={handleChange} />
+              <input type="text" name="firstname" id="firstname" required value={formData.firstname} onChange={changeForm} />
               <label htmlFor="Lastname">Lastname: </label>
-              <input type="text" name="lastname" id="lastname" required value={formData.lastname} onChange={handleChange} />
+              <input type="text" name="lastname" id="lastname" required value={formData.lastname} onChange={changeForm} />
               <label htmlFor="email">Mail: </label>
-              <input type="email" name="email" id="email" value={formData.email} onChange={handleChange} />
+              <input type="email" name="email" id="email" value={formData.email} onChange={changeForm} />
               <label htmlFor="comment">Comment: </label>
-              <textarea name="comment" id="comment" required value={formData.comment} onChange={handleChange} />
+              <textarea name="comment" id="comment" required value={formData.comment} onChange={changeForm} />
               <input type="submit" value="Send.." id="submit" style={{ cursor: 'pointer' }} />
             </form>
           </div>
