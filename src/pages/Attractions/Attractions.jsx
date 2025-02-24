@@ -3,8 +3,8 @@ import { Loader, Card } from '../../components'
 import { useQuery } from '@tanstack/react-query'
 import { getCityAttractions } from '../../api/attractions'
 import { useNavigate, useParams } from 'react-router-dom'
-import styles from './attraction.module.css'
-import cardStyles from '../../components/card/card.module.css'
+import styles from './attraction.module.scss'
+import cardStyles from '../../components/card/card.module.scss'
 
 export default function Attractions() {
 

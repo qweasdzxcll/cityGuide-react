@@ -1,6 +1,6 @@
 /* eslint-disable */
 import React, { useState } from 'react'
-import styles from './header.module.css'
+import styles from './header.module.scss'
 import { Link } from 'react-router-dom'
 
 
@@ -30,43 +30,43 @@ export default function Header({attr}) {
                 <div className={styles.header__container}>
                     <div className={styles.header__elems} id="elems">
                         <div className={styles.header__item}>
-                            <Link to="/home/venice"><a>Venice</a></Link>
+                            <Link to="/cityGuide-react/home/venice"><a>Venice</a></Link>
                         </div>
                         <div className={styles.header__item}>
-                            <Link to="/home/warsaw"><a>Warsaw</a></Link>
+                            <Link to="/cityGuide-react/home/warsaw"><a>Warsaw</a></Link>
                         </div>
                         <div className={styles.header__item}>
-                            <Link to={`/attractions/${attr}`}><a>Attractions</a></Link>
+                            <Link to={`/cityGuide-react/attractions/${attr}`}><a>Attractions</a></Link>
                         </div>
                         <div className={styles.header__item}>
-                            <Link to='/all-attractions?page=1&limit=4&filter=all'><a>All Attractions</a></Link>
+                            <Link to='/cityGuide-react/all-attractions?page=1&limit=4&filter=all'><a>All Attractions</a></Link>
                         </div>
                         <div className={styles.header__item}>
-                            <Link to="/reviews"><a>Reviews</a></Link>
+                            <Link to="/cityGuide-react/reviews"><a>Reviews</a></Link>
                         </div>
                         <div className={styles.header__burgerbtn} onClick={() => changeDisplay('block')}>
-                            <img src="/burger.png" alt="burger" />
+                            <img src="/cityGuide-react/burger.png" alt="burger" />
                         </div>
                         <div className='header__burger' style={burgerStyle}>
                             <div className={styles.header__burgercont}>
                                 <div className={styles.header__burgerelems}>
                                     <div className={styles.header__burgerclose} onClick={() => changeDisplay('none')}>
-                                        <img src="/close.png" alt="close" />
+                                        <img src="/cityGuide-react/close.png" alt="close" />
                                     </div>
                                     <div className={styles.header__burgeritem}>
-                                        <Link to="/home/venice"><a>Venice</a></Link>
+                                        <Link to="/cityGuide-react/home/venice"><a>Venice</a></Link>
                                     </div>
                                     <div className={styles.header__burgeritem}>
-                                        <Link to="/home/warsaw"><a>Warsaw</a></Link>
+                                        <Link to="/cityGuide-react/home/warsaw"><a>Warsaw</a></Link>
                                     </div>
                                     <div className={styles.header__burgeritem}>
-                                        <Link to={`/attractions/${attr}`}><a>Attractions</a></Link>
+                                        <Link to={`/cityGuide-react/attractions/${attr}`}><a>Attractions</a></Link>
                                     </div>
                                     <div className={styles.header__burgeritem}>
-                                        <Link to='/all-attractions?page=1&limit=4&filter=all'><a>All Attractions</a></Link>
+                                        <Link to='/cityGuide-react/all-attractions?page=1&limit=4&filter=all'><a>All Attractions</a></Link>
                                     </div>
                                     <div className={styles.header__burgeritem}>
-                                        <Link to="/reviews"><a>Reviews</a></Link>
+                                        <Link to="/cityGuide-react/reviews"><a>Reviews</a></Link>
                                     </div>
                                 </div>
                             </div>

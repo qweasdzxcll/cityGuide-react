@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import styles from './reviews.module.css'
+import styles from './reviews.module.scss'
 import { Link, useNavigate } from 'react-router-dom'
 import { useQuery } from '@tanstack/react-query'
 import { getAllAttractions } from '../../api/attractions'
@@ -40,7 +40,7 @@ export default function Reviews() {
         }
       })
       .then(response => {
-        navigate(`/one-attraction/${formData.title}`)
+        navigate(`/cityGuide-react/one-attraction/${formData.title}`)
       })
   }
 
@@ -56,10 +56,10 @@ export default function Reviews() {
         <div className={styles.header__container}>
           <div className={styles.header__elems}>
             <div className={styles.header__item}>
-              <Link to="/home/venice"><a>Venice</a></Link>
+              <Link to="/cityGuide-react/home/venice"><a>Venice</a></Link>
             </div>
             <div className={styles.header__item}>
-              <Link to="/home/warsaw"><a>Warsaw</a></Link>
+              <Link to="/cityGuide-react/home/warsaw"><a>Warsaw</a></Link>
             </div>
           </div>
         </div>

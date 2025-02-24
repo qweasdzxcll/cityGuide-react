@@ -1,6 +1,6 @@
 /* eslint-disable */
 import React from 'react'
-import styles from './reviews.module.css'
+import styles from './reviews.module.scss'
 
 export default function Reviews({item}) {
   return (

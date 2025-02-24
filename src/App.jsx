@@ -13,12 +13,12 @@ function App() {
       <ReactQueryDevtools initialIsOpen={false} />
       <BrowserRouter>
         <Routes>
-          <Route path='/' element={<Slider />} />
-          <Route path='/home/:city' element={<Home />} />
-          <Route path='/attractions/:city' element={<Attractions />} />
-          <Route path='/reviews' element={<Reviews />} />
-          <Route path='/all-attractions' element={<AllAttractions />} />
-          <Route path='/one-attraction/:title' element={<OneAttraction />} />
+          <Route path='/cityGuide-react/' element={<Slider />} />
+          <Route path='/cityGuide-react/home/:city' element={<Home />} />
+          <Route path='/cityGuide-react/attractions/:city' element={<Attractions />} />
+          <Route path='/cityGuide-react/reviews' element={<Reviews />} />
+          <Route path='/cityGuide-react/all-attractions' element={<AllAttractions />} />
+          <Route path='/cityGuide-react/one-attraction/:title' element={<OneAttraction />} />
         </Routes>
       </BrowserRouter>
     </QueryClientProvider>

@@ -88,7 +88,7 @@ li {
 
     &__slider {
         margin-left: 45vh;
-        margin-top: 25vh;
+        margin-top: 32vh;
         overflow: hidden;
         @media (max-width: 426px) {
             margin-left: 10px;
@@ -144,7 +144,7 @@ li {
 
     &__text {
         padding: 30px 50px;
-        font-size: 1.3vw;
+        font-size: 20px;
         text-align: center;
         p {
             padding-bottom: 10px;
@@ -161,6 +161,9 @@ li {
         max-width: 220px;
         border-radius: 5px;
         font-family: Protest Strike;
+        a {
+            color: white;
+        }
 
         @media (max-width: 426px) {
             max-width: 55vw;

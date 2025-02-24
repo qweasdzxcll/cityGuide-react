@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from './oneAttraction.module.css'
+import styles from './oneAttraction.module.scss'
 import { useNavigate, useParams, Link } from 'react-router-dom'
 import { useQuery } from '@tanstack/react-query'
 import { getOneAttraction } from '../../api/attractions'
@@ -35,7 +35,7 @@ export default function OneAttraction() {
             <div className={styles.main__container}>
                 <div className={styles.main__elems}>
                     <div className={styles.main__attrs}>
-                        <a onClick={() => goBack()}><img src='/Prev page.png' /></a>
+                        <a onClick={() => goBack()}><img src='/cityGuide-react/Prev page.png' /></a>
                     </div>
                     <div className={styles.main__title} id="title">
                         <p>{dataOne[0].title}</p>

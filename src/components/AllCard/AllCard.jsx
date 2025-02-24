@@ -1,11 +1,11 @@
 /* eslint-disable */
 import React from 'react'
-import styles from './AllCard.module.css'
+import styles from './AllCard.module.scss'
 import { Link } from 'react-router-dom'
 
 export default function AllCard({item}) {
   return (
-    <Link to={`/one-attraction/${item.title}`}><div className={styles.main__card}>
+    <Link to={`/cityGuide-react/one-attraction/${item.title}`}><div className={styles.main__card}>
         <div className={styles.main__subtitle}>
             <p>{item.title}</p>
         </div>

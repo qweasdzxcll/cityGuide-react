@@ -9,10 +9,10 @@ export default function Footer() {
             <div className={styles.footer__container}>
                 <div className={styles.footer__block}>
                     <div className={styles.footer__item}>
-                        <Link to='/reviews'><a>Оставить отзыв</a></Link>
+                        <Link to='/cityGuide-react/reviews'><a>Оставить отзыв</a></Link>
                     </div>
                     <div className={styles.footer__item}>
-                        <Link to='/all-attractions?page=1&limit=4'><a>Посмотреть все достопримечательности</a></Link>
+                        <Link to='/cityGuide-react/all-attractions?page=1&limit=4'><a>Посмотреть все достопримечательности</a></Link>
                     </div>
                 </div>
                 <div className={styles.footer__block}>

@@ -1,44 +1,12 @@
-import React, { useState, useRef, useEffect } from 'react'
-import styles from './allattractions.module.css'
+import React, { useState, useEffect } from 'react'
+import styles from './allattractions.module.scss'
 import { useQuery } from '@tanstack/react-query'
-import { getAttractionsPag, getAttractionsFilter, getAttractionsSort, getOneAttraction, getAttractionSearch } from '../../api/attractions'
+import { getAttractionsPag, getAttractionsFilter, getAttractionsSort, getAttractionSearch } from '../../api/attractions'
 import { AllCard, Loader } from '../../components'
-import { useNavigate, useSearchParams, Link } from 'react-router-dom'
+import { useSearchParams, Link } from 'react-router-dom'
 import { debounce } from 'lodash'
 
 export default function AllAttractions() {
-
-    const [ inputValue, setInputValue ] = useState('')
-    const [ result, setResult ] = useState('')
-
-    const changeInput = (v) => {
-        setInputValue(v)
-    }
-
-    const debouncedSave = debounce((value) => {
-        setResult(value)
-        value.length > 0 ? setSearchParams({'page': 1, 'limit': 4, 'filter': 'all', 'title': value}) : setSearchParams({'page': 1, 'limit': 4, 'filter': 'all'})
-    }, 1000)
-
-    useEffect(() => {
-        debouncedSave(inputValue)
-        return () => debouncedSave.cancel()
-    }, [inputValue])
-
-    const navigate = useNavigate()
-
-    const [checkbox, setCheckBox] = useState(false)
-
-    const changeCheckBox = (event) => {
-        const isChecked = event.target.checked
-        setCheckBox(isChecked)
-        if (isChecked) {
-            setSelectFilter('all')
-            setSearchParams({ 'page': 1, 'limit': 4, 'sortBy': 'rating', 'order': 'desc' })
-        } else {
-            setSearchParams({ 'page': 1, 'limit': limit, 'filter': 'all' })
-        }
-    }
 
     const [rightData, setRightData] = useState([])
 
@@ -52,6 +20,37 @@ export default function AllAttractions() {
     const title = searchParams.get('title') || ''
 
     const [selectFilter, setSelectFilter] = useState('all')
+
+    const [ inputValue, setInputValue ] = useState('')
+    const [ result, setResult ] = useState('')
+
+    const changeInput = (v) => {
+        setInputValue(v)
+        setSelectFilter('all')
+    }
+
+    const debouncedSave = debounce((value) => {
+        setResult(value)
+        value.length > 0 ? setSearchParams({'page': 1, 'limit': 4, 'filter': 'all', 'title': value}) : setSearchParams({'page': 1, 'limit': 4, 'filter': 'all'})
+    }, 1000)
+
+    useEffect(() => {
+        debouncedSave(inputValue)
+        return () => debouncedSave.cancel()
+    }, [inputValue])
+
+    const [checkbox, setCheckBox] = useState(false)
+
+    const changeCheckBox = (event) => {
+        const isChecked = event.target.checked
+        setCheckBox(isChecked)
+        if (isChecked) {
+            setSelectFilter('all')
+            setSearchParams({ 'page': 1, 'limit': 4, 'sortBy': 'rating', 'order': 'desc' })
+        } else {
+            setSearchParams({ 'page': 1, 'limit': limit, 'filter': 'all' })
+        }
+    }
 
     const changePage = (p) => {
         if (sortBy == 'def' && order == 'def' && title.length < 1) {
@@ -76,21 +75,21 @@ export default function AllAttractions() {
         enabled: selectFilter == 'all' && sortBy == 'def' && order == 'def' && result.length <= 0
     })
 
-    const { data: filterData, isLoading: filterIsLoading, isError: filterError } = useQuery({
+    const { data: filterData, isLoading: filterIsLoading } = useQuery({
         queryKey: ['cards', selectFilter, page, limit],
         queryFn: () => getAttractionsFilter(selectFilter, page, limit),
         staleTime: 5 * 60 * 1000,
         enabled: selectFilter != 'all' && sortBy == 'def' && result.length <= 0
     })
 
-    const { data: sortData, isLoading: sortIsLoading, isError: sortError } = useQuery({
+    const { data: sortData, isLoading: sortIsLoading } = useQuery({
         queryKey: ['cards', sortBy, order, page, limit],
         queryFn: () => getAttractionsSort(sortBy, order, page, limit),
         staleTime: 5 * 60 * 1000,
         enabled: !!checkbox && sortBy == 'rating' && order == 'desc' && filter == 'def' && result.length <= 0
     })
 
-    const { data: searchData, isLoading: searchIsLoading, isError: searchError } = useQuery({
+    const { data: searchData, isLoading: searchIsLoading } = useQuery({
         queryKey: ['cards', result, page, limit],
         queryFn: () => getAttractionSearch(result, page, limit),
         staleTime: 5 * 60 * 1000,
@@ -123,10 +122,10 @@ export default function AllAttractions() {
                                     <p>All Attractions</p>
                                 </div>
                                 <div className={styles.header__item}>
-                                    <Link to="/home/venice"><a>Venice</a></Link>
+                                    <Link to="/cityGuide-react/home/venice"><a>Venice</a></Link>
                                 </div>
                                 <div className={styles.header__item}>
-                                    <Link to="/home/warsaw"><a>Warsaw</a></Link>
+                                    <Link to="/cityGuide-react/home/warsaw"><a>Warsaw</a></Link>
                                 </div>
                                 <div className={styles.header__search}>
                                     <input type="text" id="input" className="input" placeholder="Search.."onChange={(e) => changeInput(e.target.value)} value={inputValue} />

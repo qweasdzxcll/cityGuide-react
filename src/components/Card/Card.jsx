@@ -1,6 +1,6 @@
 /* eslint-disable */
 import React, { useState, useRef } from 'react'
-import styles from './card.module.css'
+import styles from './card.module.scss'
 
 
 export default function Card({ items }) {
