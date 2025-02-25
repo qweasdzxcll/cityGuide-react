@@ -69,17 +69,17 @@ export default function Card({ items }) {
             <div className="gallery" ref={modal} style={modalStyle}>
                 <div className={styles.gallery__container}>
                     <div className={styles.gallery__back} onClick={() => changeGallery([], 'none')}>
-                        <img src="/close.png" alt="werty" />
+                        <img src="/cityGuide-react/close.png" alt="werty" />
                     </div>
                     <div className={styles.gallery__row}>
                         <div className={styles.gallery__left}>
-                            <img src="/Prev Page.png" alt="back" onClick={() => prevImg()} />
+                            <img src="/cityGuide-react/Prevpage.png" alt="back" onClick={() => prevImg()} />
                         </div>
                         <div className={styles.gallery__img}>
                             <img src={gallery[count]} alt="img" />
                         </div>
                         <div className={styles.gallery__right} onClick={() => nextImg()}>
-                            <img src="/Next Page.png" alt="next" />
+                            <img src="/cityGuide-react/Nextpage.png" alt="next" />
                         </div>
                     </div>
                 </div>

@@ -35,7 +35,7 @@ export default function OneAttraction() {
             <div className={styles.main__container}>
                 <div className={styles.main__elems}>
                     <div className={styles.main__attrs}>
-                        <a onClick={() => goBack()}><img src='/cityGuide-react/Prev page.png' /></a>
+                        <a onClick={() => goBack()}><img src='/cityGuide-react/Prevpage.png' /></a>
                     </div>
                     <div className={styles.main__title} id="title">
                         <p>{dataOne[0].title}</p>
@@ -70,7 +70,7 @@ export default function OneAttraction() {
                         dataReviews?.map(item => <Reviews item={item} key={item.id} />)
                     }
                     <div className={styles.main__revtitle}>
-                        <Link to="/reviews"><a>Оставить отзыв</a></Link>
+                        <Link to="/cityGuide-react/reviews"><a>Оставить отзыв</a></Link>
                     </div>
                 </div>
             </div>
